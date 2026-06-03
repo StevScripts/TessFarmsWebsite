@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  /* Site color tokens */
+  --color-site-forest: var(--site-forest);
+  --color-site-sage: var(--site-sage);
+  --color-site-sage-light: var(--site-sage-light);
+  --color-site-cream: var(--site-cream);
+  --color-site-soil: var(--site-soil);
+  --color-site-soil-muted: var(--site-soil-muted);
+  --color-site-terracotta: var(--site-terracotta);
+  --color-site-terracotta-hover: var(--site-terracotta-hover);
+  --font-site-heading: var(--font-site-heading);
+  --font-site-body: var(--font-site-body);
+}
+
+:root {
+  --site-forest:          oklch(0.30 0.10 155);
+  --site-sage:            oklch(0.44 0.13 155);
+  --site-sage-light:      oklch(0.94 0.04 155);
+  --site-cream:           oklch(0.96 0.012 75);
+  --site-soil:            oklch(0.25 0.03 60);
+  --site-soil-muted:      oklch(0.45 0.02 60);
+  --site-terracotta:      oklch(0.55 0.14 35);
+  --site-terracotta-hover:oklch(0.48 0.14 35);
+}
+
+@layer base {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ── Site: scroll reveal ──────────────────────────────────── */
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.site-reveal {
+  opacity: 0;
+}
+
+.site-reveal.is-visible {
+  animation: reveal-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-reveal { opacity: 1; }
+  .site-reveal.is-visible { animation: none; }
+}
