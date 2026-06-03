@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import { MapPin, Clock, Phone, Navigation } from "lucide-react";
+import { Phone, MessageCircle, MapPin, Calendar, ShoppingBag } from "lucide-react";
 import { siteContent } from "@/data/site-content";
 import { RevealOnScroll } from "@/components/site/reveal-on-scroll";
 
 export const metadata: Metadata = {
   title: "Visit",
   description:
-    "Visit Tess Farms in Homestead, FL. Find our hours, location, directions, and contact info. Walk-ins welcome during business hours.",
+    "Schedule a visit to Tess Farms in Central Florida. Call or WhatsApp George to browse Indian plants, get growing advice, and take your plants home.",
 };
 
 export default function VisitPage() {
@@ -29,140 +28,94 @@ export default function VisitPage() {
         </div>
       </section>
 
-      {/* ── Info Grid ───────────────────────────────────────── */}
+      {/* ── How It Works ──────────────────────────────────── */}
       <section className="pb-16 sm:pb-20 bg-white">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Address */}
-            <RevealOnScroll>
-              <div className="bg-site-cream rounded-2xl p-6 sm:p-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-site-sage-light rounded-full flex items-center justify-center">
-                    <MapPin className="w-5 h-5 text-site-sage" />
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            {visit.howItWorks.map((step, i) => {
+              const icons = [MessageCircle, Calendar, ShoppingBag];
+              const Icon = icons[i];
+              return (
+                <RevealOnScroll key={step.step} delay={i * 100}>
+                  <div className="bg-site-cream rounded-2xl p-6 sm:p-8">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 bg-site-sage-light rounded-full flex items-center justify-center">
+                        <Icon className="w-5 h-5 text-site-sage" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold text-site-sage uppercase tracking-wider">
+                          Step {step.step}
+                        </p>
+                        <h2 className="font-site-heading font-bold text-lg text-site-forest">
+                          {step.title}
+                        </h2>
+                      </div>
+                    </div>
+                    <p className="text-site-soil-muted leading-relaxed">
+                      {step.description}
+                    </p>
                   </div>
-                  <h2 className="font-site-heading font-bold text-lg text-site-forest">
-                    Location
-                  </h2>
-                </div>
-                <p className="text-site-soil leading-relaxed">
-                  {business.address.street}
-                </p>
-                <p className="text-site-soil">
-                  {business.address.city}, {business.address.state}{" "}
-                  {business.address.zip}
-                </p>
-                <a
-                  href={`https://maps.google.com/?q=${encodeURIComponent(
-                    `${business.address.street}, ${business.address.city}, ${business.address.state} ${business.address.zip}`
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-1.5 text-site-terracotta font-semibold text-sm hover:underline underline-offset-4"
-                >
-                  <Navigation className="w-3.5 h-3.5" />
-                  Get directions
-                </a>
-              </div>
-            </RevealOnScroll>
-
-            {/* Hours */}
-            <RevealOnScroll delay={100}>
-              <div className="bg-site-cream rounded-2xl p-6 sm:p-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-site-sage-light rounded-full flex items-center justify-center">
-                    <Clock className="w-5 h-5 text-site-sage" />
-                  </div>
-                  <h2 className="font-site-heading font-bold text-lg text-site-forest">
-                    Hours
-                  </h2>
-                </div>
-                <div className="space-y-1.5 text-site-soil">
-                  <p>{business.hours.weekdays}</p>
-                  <p>{business.hours.saturday}</p>
-                  <p className="text-site-soil-muted">{business.hours.sunday}</p>
-                </div>
-              </div>
-            </RevealOnScroll>
-
-            {/* Phone */}
-            <RevealOnScroll delay={200}>
-              <div className="bg-site-cream rounded-2xl p-6 sm:p-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-site-sage-light rounded-full flex items-center justify-center">
-                    <Phone className="w-5 h-5 text-site-sage" />
-                  </div>
-                  <h2 className="font-site-heading font-bold text-lg text-site-forest">
-                    Call us
-                  </h2>
-                </div>
-                <a
-                  href={`tel:${business.phone.replace(/\D/g, "")}`}
-                  className="text-2xl font-site-heading font-bold text-site-forest hover:text-site-sage transition-colors"
-                >
-                  {business.phone}
-                </a>
-                <p className="mt-2 text-sm text-site-soil-muted">
-                  {visit.mapNote}
-                </p>
-              </div>
-            </RevealOnScroll>
+                </RevealOnScroll>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* ── Directions + Photo ──────────────────────────────── */}
+      {/* ── Contact ───────────────────────────────────────── */}
       <section className="py-16 sm:py-24 bg-site-sage-light/40">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <RevealOnScroll>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-              <div>
-                <h2 className="font-site-heading font-bold text-2xl sm:text-3xl text-site-forest">
-                  Finding us
-                </h2>
-                <p className="mt-4 text-site-soil leading-relaxed text-base sm:text-lg">
-                  {visit.directions}
-                </p>
-                <p className="mt-3 text-site-soil-muted text-sm">
-                  {visit.mapNote}
-                </p>
-              </div>
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
-                <Image
-                  src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=960&q=80"
-                  alt="Gravel path leading to a plant nursery entrance with green signage"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
+            <div className="max-w-2xl mx-auto text-center">
+              <h2 className="font-site-heading font-bold text-2xl sm:text-3xl text-site-forest">
+                Get in touch
+              </h2>
+              <p className="mt-4 text-site-soil leading-relaxed text-base sm:text-lg">
+                The easiest way to reach George is WhatsApp. You can also call
+                directly. Let him know what plants you&apos;re looking for and
+                he&apos;ll let you know what&apos;s in stock.
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href={`https://wa.me/${business.whatsapp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-green-600 text-white px-7 py-3.5 rounded-full text-base font-semibold font-site-body transition-colors duration-200 hover:bg-green-700"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  WhatsApp George
+                </a>
+                <a
+                  href={`tel:${business.phone.replace(/\D/g, "")}`}
+                  className="inline-flex items-center justify-center gap-2 bg-site-terracotta text-white px-7 py-3.5 rounded-full text-base font-semibold font-site-body transition-colors duration-200 hover:bg-site-terracotta-hover"
+                >
+                  <Phone className="w-5 h-5" />
+                  {business.phone}
+                </a>
               </div>
             </div>
           </RevealOnScroll>
         </div>
       </section>
 
-      {/* ── Map Embed ───────────────────────────────────────── */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8 py-16 sm:py-20">
+      {/* ── Serving Area ──────────────────────────────────── */}
+      <section className="py-16 sm:py-20 bg-white">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <RevealOnScroll>
-            <div className="rounded-2xl overflow-hidden border border-site-sage-light">
-              <div className="aspect-[16/9] sm:aspect-[21/9] bg-site-sage-light/30 flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="w-8 h-8 text-site-sage mx-auto mb-2" />
-                  <p className="text-site-soil-muted text-sm">
-                    Interactive map coming soon
-                  </p>
-                  <a
-                    href={`https://maps.google.com/?q=${encodeURIComponent(
-                      `${business.address.street}, ${business.address.city}, ${business.address.state} ${business.address.zip}`
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-2 inline-flex items-center gap-1.5 text-site-terracotta font-semibold text-sm hover:underline underline-offset-4"
-                  >
-                    Open in Google Maps
-                  </a>
-                </div>
+            <div className="max-w-2xl mx-auto text-center">
+              <div className="w-12 h-12 bg-site-sage-light rounded-full flex items-center justify-center mx-auto mb-4">
+                <MapPin className="w-6 h-6 text-site-sage" />
               </div>
+              <h2 className="font-site-heading font-bold text-2xl sm:text-3xl text-site-forest">
+                Serving Central Florida
+              </h2>
+              <p className="mt-4 text-lg text-site-soil-muted">
+                {visit.servingAreas}
+              </p>
+              <p className="mt-3 text-sm text-site-soil-muted">
+                The nursery is appointment-only from George&apos;s property.
+                Call or WhatsApp for the address when scheduling your visit.
+              </p>
             </div>
           </RevealOnScroll>
         </div>
@@ -177,35 +130,20 @@ export default function VisitPage() {
             "@type": "LocalBusiness",
             name: "Tess Farms LLC",
             description:
-              "A family nursery in South Florida specializing in tropical fruit trees.",
+              "Indian plants and tropical fruit trees in Central Florida. Alphonso mango, curry leaf, jasmine, guava, and more.",
             telephone: business.phone,
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: business.address.street,
-              addressLocality: business.address.city,
-              addressRegion: business.address.state,
-              postalCode: business.address.zip,
-              addressCountry: "US",
+            areaServed: {
+              "@type": "GeoCircle",
+              geoMidpoint: {
+                "@type": "GeoCoordinates",
+                latitude: 28.3747,
+                longitude: -81.2603,
+              },
+              geoRadius: "80000",
             },
-            openingHoursSpecification: [
-              {
-                "@type": "OpeningHoursSpecification",
-                dayOfWeek: [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                ],
-                opens: "08:00",
-                closes: "17:00",
-              },
-              {
-                "@type": "OpeningHoursSpecification",
-                dayOfWeek: "Saturday",
-                opens: "08:00",
-                closes: "15:00",
-              },
+            sameAs: [
+              business.social.youtube,
+              business.social.facebook,
             ],
           }),
         }}

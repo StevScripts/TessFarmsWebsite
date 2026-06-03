@@ -1,80 +1,108 @@
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, MapPin, Clock, Phone } from "lucide-react";
+import { ArrowRight, Phone, MessageCircle } from "lucide-react";
 import { siteContent } from "@/data/site-content";
 import { plantCatalog } from "@/data/plant-catalog";
 import { RevealOnScroll } from "@/components/site/reveal-on-scroll";
 
 export default function HomePage() {
   const { homepage, business } = siteContent;
+  const featured = plantCatalog.filter((p) => p.featured);
 
   return (
     <>
       {/* ── Hero ────────────────────────────────────────────── */}
-      <section className="relative min-h-[85vh] sm:min-h-[90vh] flex items-end overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1920&q=80"
-          alt="Rows of tropical plants in a sunlit nursery"
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-        <div className="relative z-10 w-full mx-auto max-w-6xl px-5 sm:px-8 pb-16 sm:pb-24">
-          <h1 className="font-site-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-white leading-tight max-w-2xl">
+      <section className="relative bg-site-forest text-white overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(68,130,100,0.4)_0%,_transparent_60%)]" />
+        <div className="relative z-10 mx-auto max-w-6xl px-5 sm:px-8 py-20 sm:py-32">
+          <h1 className="font-site-heading font-bold text-3xl sm:text-5xl lg:text-6xl leading-tight max-w-3xl">
             {homepage.hero.headline}
           </h1>
-          <p className="mt-4 text-lg sm:text-xl text-white/80 max-w-xl leading-relaxed">
+          <p className="mt-6 text-lg sm:text-xl text-white/80 max-w-2xl leading-relaxed">
             {homepage.hero.subheadline}
           </p>
-          <Link
-            href={homepage.hero.ctaHref}
-            className="mt-8 inline-flex items-center gap-2 bg-site-terracotta text-white px-7 py-3.5 rounded-full text-base font-semibold font-site-body transition-colors duration-200 hover:bg-site-terracotta-hover"
-          >
-            {homepage.hero.cta}
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <a
+              href={`https://wa.me/${business.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-green-600 text-white px-7 py-3.5 rounded-full text-base font-semibold font-site-body transition-colors duration-200 hover:bg-green-700"
+            >
+              <MessageCircle className="w-5 h-5" />
+              WhatsApp George
+            </a>
+            <a
+              href={`tel:${business.phone.replace(/\D/g, "")}`}
+              className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm text-white border border-white/20 px-7 py-3.5 rounded-full text-base font-semibold font-site-body transition-colors duration-200 hover:bg-white/20"
+            >
+              <Phone className="w-5 h-5" />
+              {business.phone}
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* ── What We Grow ────────────────────────────────────── */}
+      {/* ── Stats ───────────────────────────────────────────── */}
+      <section className="bg-white border-b border-site-sage-light/60">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8 py-12">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+            {homepage.highlights.map((h) => (
+              <RevealOnScroll key={h.label}>
+                <p className="font-site-heading font-bold text-4xl text-site-forest">
+                  {h.stat}
+                </p>
+                <p className="mt-1 font-semibold text-site-soil">{h.label}</p>
+                <p className="mt-1 text-sm text-site-soil-muted">{h.detail}</p>
+              </RevealOnScroll>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Featured Plants ─────────────────────────────────── */}
       <section className="py-20 sm:py-28 bg-white">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <RevealOnScroll>
             <h2 className="font-site-heading font-bold text-3xl sm:text-4xl text-site-forest">
-              What we grow
+              Plants from back home
             </h2>
             <p className="mt-3 text-site-soil-muted text-lg max-w-2xl leading-relaxed">
-              Tropical and subtropical fruit trees raised in South Florida's climate.
-              Each one grown with time and care.
+              The trees, flowers, and herbs that Indian families grew up with
+              &mdash; hard to find at regular nurseries, thriving at Tess Farms.
             </p>
           </RevealOnScroll>
 
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {plantCatalog.map((plant, i) => (
+            {featured.map((plant, i) => (
               <RevealOnScroll key={plant.id} delay={i * 80}>
-                <Link
-                  href="/plants"
-                  className="group block relative aspect-[4/3] rounded-2xl overflow-hidden"
-                >
-                  <Image
-                    src={plant.image}
-                    alt={plant.imageAlt}
-                    fill
-                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <p className="font-site-heading font-bold text-xl text-white">
-                      {plant.name}
-                    </p>
-                    <p className="text-sm text-white/70 mt-0.5">
-                      {plant.varieties.length} varieties available
-                    </p>
-                  </div>
-                </Link>
+                <div className="group bg-site-cream rounded-2xl p-6 sm:p-8 transition-shadow duration-300 hover:shadow-lg border border-site-sage-light/40">
+                  <span className="text-4xl">{plant.icon}</span>
+                  <h3 className="mt-4 font-site-heading font-bold text-xl text-site-forest">
+                    {plant.name}
+                  </h3>
+                  <p className="mt-1 text-sm font-medium text-site-sage">
+                    {plant.tagline}
+                  </p>
+                  <p className="mt-3 text-site-soil-muted text-sm leading-relaxed line-clamp-3">
+                    {plant.description}
+                  </p>
+                  {plant.varieties.length > 1 && (
+                    <div className="mt-4 flex flex-wrap gap-1.5">
+                      {plant.varieties.slice(0, 4).map((v) => (
+                        <span
+                          key={v}
+                          className="inline-block bg-site-sage-light text-site-forest text-xs font-medium px-2.5 py-1 rounded-full"
+                        >
+                          {v}
+                        </span>
+                      ))}
+                      {plant.varieties.length > 4 && (
+                        <span className="inline-block text-site-soil-muted text-xs font-medium px-2.5 py-1">
+                          +{plant.varieties.length - 4} more
+                        </span>
+                      )}
+                    </div>
+                  )}
+                </div>
               </RevealOnScroll>
             ))}
           </div>
@@ -84,95 +112,68 @@ export default function HomePage() {
               href="/plants"
               className="inline-flex items-center gap-2 text-site-terracotta font-semibold font-site-body hover:underline underline-offset-4"
             >
-              See all plants
+              See all {plantCatalog.length} plant categories
               <ArrowRight className="w-4 h-4" />
             </Link>
           </RevealOnScroll>
         </div>
       </section>
 
-      {/* ── About Teaser ────────────────────────────────────── */}
+      {/* ── George's Story Teaser ──────────────────────────── */}
       <section className="py-20 sm:py-28 bg-site-sage-light/40">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <RevealOnScroll>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
-                <Image
-                  src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=960&q=80"
-                  alt="Hands tending to young plants in rich soil at a nursery"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-              <div>
-                <blockquote className="font-site-heading text-2xl sm:text-3xl text-site-forest leading-snug font-medium italic">
-                  &ldquo;{homepage.aboutTeaser.quote}&rdquo;
-                </blockquote>
-                <p className="mt-4 text-site-soil-muted font-site-body">
-                  &mdash; {homepage.aboutTeaser.attribution}
-                </p>
-                <Link
-                  href={homepage.aboutTeaser.linkHref}
-                  className="mt-6 inline-flex items-center gap-2 text-site-terracotta font-semibold font-site-body hover:underline underline-offset-4"
-                >
-                  {homepage.aboutTeaser.linkText}
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
+            <div className="max-w-3xl mx-auto text-center">
+              <blockquote className="font-site-heading text-2xl sm:text-3xl text-site-forest leading-snug font-medium italic">
+                &ldquo;{homepage.aboutTeaser.quote}&rdquo;
+              </blockquote>
+              <p className="mt-4 text-site-soil-muted font-site-body">
+                &mdash; {homepage.aboutTeaser.attribution}
+              </p>
+              <Link
+                href={homepage.aboutTeaser.linkHref}
+                className="mt-6 inline-flex items-center gap-2 text-site-terracotta font-semibold font-site-body hover:underline underline-offset-4"
+              >
+                {homepage.aboutTeaser.linkText}
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </RevealOnScroll>
         </div>
       </section>
 
-      {/* ── Visit CTA ───────────────────────────────────────── */}
+      {/* ── CTA ─────────────────────────────────────────────── */}
       <section className="py-20 sm:py-28 bg-site-forest text-white">
         <div className="mx-auto max-w-6xl px-5 sm:px-8 text-center">
           <RevealOnScroll>
             <h2 className="font-site-heading font-bold text-3xl sm:text-4xl">
-              Come see what&apos;s growing
+              Ready to grow something from home?
             </h2>
             <p className="mt-3 text-white/70 text-lg max-w-xl mx-auto leading-relaxed">
-              The best way to pick your plants is in person. Walk the rows, ask
-              questions, and find exactly what your yard needs.
+              Call or WhatsApp George to schedule a visit. He&apos;ll help you
+              pick the right plants for your yard and teach you how to grow them.
             </p>
-
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto text-left">
-              <div className="flex gap-3 items-start">
-                <MapPin className="w-5 h-5 text-site-sage-light mt-0.5 shrink-0" />
-                <div>
-                  <p className="text-sm text-white/90">{business.address.street}</p>
-                  <p className="text-sm text-white/90">
-                    {business.address.city}, {business.address.state}{" "}
-                    {business.address.zip}
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-3 items-start">
-                <Clock className="w-5 h-5 text-site-sage-light mt-0.5 shrink-0" />
-                <div className="text-sm text-white/90 space-y-0.5">
-                  <p>{business.hours.weekdays}</p>
-                  <p>{business.hours.saturday}</p>
-                </div>
-              </div>
-              <div className="flex gap-3 items-start">
-                <Phone className="w-5 h-5 text-site-sage-light mt-0.5 shrink-0" />
-                <a
-                  href={`tel:${business.phone.replace(/\D/g, "")}`}
-                  className="text-sm text-white/90 hover:text-white transition-colors"
-                >
-                  {business.phone}
-                </a>
-              </div>
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href={`https://wa.me/${business.whatsapp}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-green-600 text-white px-7 py-3.5 rounded-full text-base font-semibold font-site-body transition-colors duration-200 hover:bg-green-700"
+              >
+                <MessageCircle className="w-5 h-5" />
+                WhatsApp George
+              </a>
+              <a
+                href={`tel:${business.phone.replace(/\D/g, "")}`}
+                className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm text-white border border-white/20 px-7 py-3.5 rounded-full text-base font-semibold font-site-body transition-colors duration-200 hover:bg-white/20"
+              >
+                <Phone className="w-5 h-5" />
+                Call {business.phone}
+              </a>
             </div>
-
-            <Link
-              href="/visit"
-              className="mt-10 inline-flex items-center gap-2 bg-site-terracotta text-white px-7 py-3.5 rounded-full text-base font-semibold font-site-body transition-colors duration-200 hover:bg-site-terracotta-hover"
-            >
-              Plan your visit
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            <p className="mt-6 text-sm text-white/50">
+              Serving {business.address.serving}
+            </p>
           </RevealOnScroll>
         </div>
       </section>

@@ -14,8 +14,8 @@ export function SiteFooter() {
               Tess Farms LLC
             </p>
             <p className="text-sm text-white/60 leading-relaxed max-w-xs">
-              A family nursery in South Florida growing tropical plants with
-              patience and care.
+              Indian plants and tropical fruit trees grown in Central Florida.
+              Bringing the plants of home to families across Orlando.
             </p>
           </div>
 
@@ -44,25 +44,47 @@ export function SiteFooter() {
           {/* Contact */}
           <div>
             <p className="font-site-body font-semibold text-sm text-white/50 uppercase tracking-wider mb-4">
-              Visit Us
+              Get in Touch
             </p>
-            <div className="text-sm text-white/70 leading-relaxed space-y-1.5">
-              <p>{business.address.street}</p>
-              <p>
-                {business.address.city}, {business.address.state}{" "}
-                {business.address.zip}
-              </p>
+            <div className="text-sm text-white/70 leading-relaxed space-y-2">
               <a
                 href={`tel:${business.phone.replace(/\D/g, "")}`}
-                className="block mt-3 text-white hover:text-site-sage-light transition-colors"
+                className="block text-white hover:text-site-sage-light transition-colors"
               >
                 {business.phone}
               </a>
-              <div className="mt-4 space-y-0.5 text-white/50 text-xs">
-                <p>{business.hours.weekdays}</p>
-                <p>{business.hours.saturday}</p>
-                <p>{business.hours.sunday}</p>
+              <a
+                href={`https://wa.me/${business.whatsapp}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-white/70 hover:text-white transition-colors"
+              >
+                WhatsApp George
+              </a>
+              <div className="flex gap-4 mt-3">
+                <a
+                  href={business.social.youtube}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/50 hover:text-white transition-colors text-xs"
+                >
+                  YouTube
+                </a>
+                <a
+                  href={business.social.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/50 hover:text-white transition-colors text-xs"
+                >
+                  Facebook
+                </a>
               </div>
+              <p className="mt-3 text-white/40 text-xs">
+                Serving {business.address.serving}
+              </p>
+              <p className="text-white/40 text-xs">
+                {business.hours.note} &mdash; {business.hours.detail}
+              </p>
             </div>
           </div>
         </div>

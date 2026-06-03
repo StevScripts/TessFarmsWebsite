@@ -1,72 +1,126 @@
 export type PlantCategory = {
   id: string;
   name: string;
+  tagline: string;
   description: string;
-  sizes: string;
-  image: string; // TODO: Replace stock images with real photography
-  imageAlt: string;
   varieties: string[];
+  icon: string;
+  featured?: boolean;
 };
 
 export const plantCatalog: PlantCategory[] = [
   {
     id: "mango",
     name: "Mango",
+    tagline: "12+ varieties including Indian favorites",
     description:
-      "Our mangos are field-grown for strong root development. We carry early, mid, and late-season varieties so you can harvest from May through September.",
-    sizes: "Available in 3-gallon through 25-gallon containers",
-    image: "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Ripe mangos hanging from a mature tree branch in warm sunlight",
-    varieties: ["Kent", "Nam Doc Mai", "Pickering", "Cogshall", "Ice Cream"],
+      "Our biggest collection. From the king of mangoes \u2014 Alphonso \u2014 to the sweet Kesar and prolific Neelum, we carry varieties you won't find at any garden center. Whether you want a single tree for your backyard or a multi-graft that gives you several varieties from one trunk, George can help you pick the right one for your space and climate.",
+    varieties: [
+      "Alphonso",
+      "Super Alphonso",
+      "Kesar",
+      "Kent",
+      "Alampur Baneshan",
+      "Carie",
+      "Glen",
+      "Neelum",
+      "Orange Sherbat",
+      "Valencia Pride",
+      "Venus",
+      "Multi Graft",
+    ],
+    icon: "\ud83e\udd6d",
+    featured: true,
   },
   {
-    id: "avocado",
-    name: "Avocado",
+    id: "jasmine",
+    name: "Jasmine",
+    tagline: "6 varieties \u2014 the fragrance of home",
     description:
-      "Cold-hardy and heat-tolerant varieties selected for South Florida yards. Our avocado trees are grafted onto strong rootstock for faster fruiting.",
-    sizes: "Available in 3-gallon through 25-gallon containers",
-    image: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Fresh avocados growing on a tree with broad green leaves",
-    varieties: ["Hass", "Monroe", "Brogdon", "Lula", "Winter Mexican"],
+      "Nothing says home like the scent of jasmine in the evening. We carry Mysore, Grand Duke, the beloved Chamely (pichi), and more. Perfect for a puja room, a backyard trellis, or just filling your evenings with that unmistakable fragrance.",
+    varieties: [
+      "Mysore",
+      "Grand Duke",
+      "Chamely (Pichi / Jasminum Grandiflora)",
+      "Multi",
+      "Single",
+      "Wax Jasmine",
+    ],
+    icon: "\ud83c\udf3c",
+    featured: true,
   },
   {
-    id: "citrus",
-    name: "Citrus",
+    id: "curry",
+    name: "Curry Leaf",
+    tagline: "Fresh curry leaves from your own yard",
     description:
-      "From sweet navel oranges to tangy key limes, our citrus trees are budded onto disease-resistant rootstock. Perfect for hedges, containers, or backyard groves.",
-    sizes: "Available in 1-gallon through 15-gallon containers",
-    image: "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Bright oranges on a citrus tree with dark green foliage",
-    varieties: ["Valencia Orange", "Navel Orange", "Meyer Lemon", "Key Lime", "Ruby Red Grapefruit"],
+      "Stop buying stale curry leaves from the grocery store. A curry leaf plant in your yard means fresh, fragrant leaves whenever you need them \u2014 for tadka, rasam, chutney, or anything that needs that irreplaceable aroma. George will teach you how to keep it thriving through Florida's winters.",
+    varieties: ["Curry Leaves"],
+    icon: "\ud83c\udf3f",
+    featured: true,
   },
   {
-    id: "lychee",
-    name: "Lychee",
+    id: "guava",
+    name: "Guava",
+    tagline: "Pink and white varieties",
     description:
-      "A South Florida favorite. Our lychee trees are air-layered from proven mother trees for reliable fruiting. Give them space and they'll reward you for decades.",
-    sizes: "Available in 7-gallon through 25-gallon containers",
-    image: "https://images.unsplash.com/photo-1577735780842-db45f2d1f135?auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Clusters of ripe red lychee fruit hanging among long green leaves",
-    varieties: ["Mauritius", "Brewster", "Sweetheart"],
+      "Sweet, fragrant guavas straight from your backyard. We carry Barbie Pink, Big Boy White, and Thai White \u2014 heavy producers that love Florida's climate. Nothing beats a tree-ripened guava with a pinch of chaat masala.",
+    varieties: ["Barbie Pink", "Big Boy White", "Thai White"],
+    icon: "\ud83c\udf50",
   },
   {
-    id: "jackfruit",
-    name: "Jackfruit",
+    id: "parijat",
+    name: "Parijat (Night Jasmine)",
+    tagline: "The sacred flower tree",
     description:
-      "The world's largest tree-borne fruit, right at home in South Florida. Our jackfruit trees are selected for flavor and manageable size.",
-    sizes: "Available in 3-gallon through 15-gallon containers",
-    image: "https://images.unsplash.com/photo-1528825871115-3581a5e31faf?auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Large jackfruit growing directly from the trunk of a tropical tree",
-    varieties: ["Black Gold", "Dang Rasimi", "NS1"],
+      "Parijat \u2014 Nyctanthes arbor-tristis \u2014 the tree that drops fragrant white-and-orange flowers every morning. Sacred in Hindu tradition, beautiful in any yard. Our plants are flowering size and ready to bloom.",
+    varieties: ["Flowering Size"],
+    icon: "\ud83c\udf38",
+    featured: true,
   },
   {
-    id: "tropical",
-    name: "Tropical Ornamentals",
+    id: "fig",
+    name: "Fig",
+    tagline: "Anjeer for your backyard",
     description:
-      "Beyond fruit trees, we grow select tropical ornamentals that thrive in our climate: palms, heliconias, plumerias, and more. Ask about current availability.",
-    sizes: "Available in 1-gallon through 45-gallon containers",
-    image: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Lush tropical plants with broad leaves in a nursery setting",
-    varieties: ["Plumeria", "Heliconia", "Bird of Paradise", "Royal Palm"],
+      "Figs grow beautifully in Central Florida. We carry Brown Turkey and Italian Large \u2014 both reliable producers. Eat them fresh, dry them, or make your own anjeer barfi.",
+    varieties: ["Brown Turkey", "Italian Large"],
+    icon: "\ud83e\udded",
+  },
+  {
+    id: "sapodilla",
+    name: "Sapodilla (Chiku)",
+    tagline: "The sweetest tropical fruit",
+    description:
+      "Known as chiku back home, sapodilla is one of the sweetest fruits you can grow. Our Alana variety is well-suited to Florida and produces generously once established.",
+    varieties: ["Alana"],
+    icon: "\ud83c\udf30",
+  },
+  {
+    id: "papaya",
+    name: "Papaya",
+    tagline: "Fast-growing tropical staple",
+    description:
+      "Papayas grow fast and fruit within a year in Florida. Our Red Lady variety is a heavy producer with sweet, red-orange flesh. A must-have for any tropical garden.",
+    varieties: ["Red Lady"],
+    icon: "\ud83c\udf53",
+  },
+  {
+    id: "loquat",
+    name: "Loquat",
+    tagline: "Winter fruit for Florida gardens",
+    description:
+      "Loquats are one of the few fruits that ripen in late winter and early spring in Florida. Honey Peach is a sweet, aromatic variety that's perfect for eating fresh.",
+    varieties: ["Honey Peach"],
+    icon: "\ud83c\udf51",
+  },
+  {
+    id: "allspice",
+    name: "All Spice",
+    tagline: "Grow your own spice",
+    description:
+      "The all spice tree (Pimenta dioica) produces berries that taste like a blend of clove, cinnamon, and nutmeg. A beautiful and useful addition to any spice garden.",
+    varieties: ["Florida"],
+    icon: "\ud83c\udf31",
   },
 ];

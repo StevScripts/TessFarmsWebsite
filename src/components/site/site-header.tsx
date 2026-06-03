@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -20,7 +20,6 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-site-sage-light/60">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          {/* Logo / Business Name */}
           <Link
             href="/"
             className="font-site-heading font-bold text-xl sm:text-2xl text-site-forest tracking-tight"
@@ -28,7 +27,6 @@ export function SiteHeader() {
             Tess Farms
           </Link>
 
-          {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
@@ -47,26 +45,30 @@ export function SiteHeader() {
               );
             })}
             <a
-              href="tel:+15551234567"
-              className="inline-flex items-center gap-2 bg-site-terracotta text-white px-5 py-2.5 rounded-full text-sm font-semibold font-site-body transition-colors duration-200 hover:bg-site-terracotta-hover"
+              href="https://wa.me/14076199561"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-green-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold font-site-body transition-colors duration-200 hover:bg-green-700"
             >
-              <Phone className="w-4 h-4" />
-              Call us
+              <MessageCircle className="w-4 h-4" />
+              WhatsApp
             </a>
           </nav>
 
-          {/* Mobile menu button */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="md:hidden p-2 text-site-forest"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
           >
-            {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {menuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
       </div>
 
-      {/* Mobile Nav */}
       {menuOpen && (
         <nav className="md:hidden border-t border-site-sage-light/60 bg-white">
           <div className="px-5 py-4 flex flex-col gap-1">
@@ -88,11 +90,13 @@ export function SiteHeader() {
               );
             })}
             <a
-              href="tel:+15551234567"
-              className="mt-2 inline-flex items-center justify-center gap-2 bg-site-terracotta text-white px-5 py-3 rounded-full text-base font-semibold font-site-body"
+              href="https://wa.me/14076199561"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-flex items-center justify-center gap-2 bg-green-600 text-white px-5 py-3 rounded-full text-base font-semibold font-site-body"
             >
-              <Phone className="w-4 h-4" />
-              (555) 123-4567
+              <MessageCircle className="w-4 h-4" />
+              WhatsApp George
             </a>
           </div>
         </nav>
