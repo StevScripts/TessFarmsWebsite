@@ -19,11 +19,7 @@ const sourceSans = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default:
-      "Tess Farms LLC \u2014 Indian Fruit Trees & Plants in Central Florida",
-    template: "%s | Tess Farms LLC",
-  },
+  title: "Tess Farms LLC \u2014 Indian Fruit Trees & Plants in Central Florida",
   description:
     "Alphonso mango, curry leaf, jasmine, guava, parijat & more. Indian plants grown in Central Florida. Serving Lake Nona, St. Cloud, Kissimmee & Orlando.",
   keywords: [

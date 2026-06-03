@@ -1,0 +1,245 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-03T00:00:00Z",
+  "title": "Design System: Tess Farms LLC",
+  "extensions": {
+    "colorMeta": {
+      "nursery-green": {
+        "role": "primary",
+        "displayName": "Nursery Green",
+        "canonical": "oklch(0.30 0.10 155)",
+        "tonalRamp": [
+          "oklch(0.15 0.06 155)",
+          "oklch(0.22 0.08 155)",
+          "oklch(0.30 0.10 155)",
+          "oklch(0.38 0.11 155)",
+          "oklch(0.50 0.12 155)",
+          "oklch(0.62 0.10 155)",
+          "oklch(0.78 0.06 155)",
+          "oklch(0.94 0.04 155)"
+        ]
+      },
+      "garden-sage": {
+        "role": "primary",
+        "displayName": "Garden Sage",
+        "canonical": "oklch(0.44 0.13 155)",
+        "tonalRamp": [
+          "oklch(0.20 0.07 155)",
+          "oklch(0.30 0.10 155)",
+          "oklch(0.44 0.13 155)",
+          "oklch(0.55 0.12 155)",
+          "oklch(0.65 0.10 155)",
+          "oklch(0.75 0.08 155)",
+          "oklch(0.85 0.05 155)",
+          "oklch(0.94 0.04 155)"
+        ]
+      },
+      "morning-mist": {
+        "role": "primary",
+        "displayName": "Morning Mist",
+        "canonical": "oklch(0.94 0.04 155)",
+        "tonalRamp": [
+          "oklch(0.30 0.10 155)",
+          "oklch(0.44 0.08 155)",
+          "oklch(0.58 0.07 155)",
+          "oklch(0.70 0.06 155)",
+          "oklch(0.80 0.05 155)",
+          "oklch(0.88 0.04 155)",
+          "oklch(0.94 0.04 155)",
+          "oklch(0.97 0.02 155)"
+        ]
+      },
+      "warm-earth": {
+        "role": "neutral",
+        "displayName": "Warm Earth",
+        "canonical": "oklch(0.96 0.012 75)",
+        "tonalRamp": [
+          "oklch(0.25 0.03 75)",
+          "oklch(0.35 0.025 75)",
+          "oklch(0.50 0.02 75)",
+          "oklch(0.65 0.018 75)",
+          "oklch(0.78 0.015 75)",
+          "oklch(0.88 0.013 75)",
+          "oklch(0.96 0.012 75)",
+          "oklch(0.98 0.008 75)"
+        ]
+      },
+      "rich-soil": {
+        "role": "neutral",
+        "displayName": "Rich Soil",
+        "canonical": "oklch(0.25 0.03 60)",
+        "tonalRamp": [
+          "oklch(0.15 0.02 60)",
+          "oklch(0.25 0.03 60)",
+          "oklch(0.35 0.025 60)",
+          "oklch(0.45 0.02 60)",
+          "oklch(0.58 0.018 60)",
+          "oklch(0.70 0.015 60)",
+          "oklch(0.82 0.012 60)",
+          "oklch(0.94 0.008 60)"
+        ]
+      },
+      "weathered-bark": {
+        "role": "neutral",
+        "displayName": "Weathered Bark",
+        "canonical": "oklch(0.45 0.02 60)",
+        "tonalRamp": [
+          "oklch(0.15 0.02 60)",
+          "oklch(0.25 0.03 60)",
+          "oklch(0.35 0.025 60)",
+          "oklch(0.45 0.02 60)",
+          "oklch(0.58 0.018 60)",
+          "oklch(0.70 0.015 60)",
+          "oklch(0.82 0.012 60)",
+          "oklch(0.94 0.008 60)"
+        ]
+      },
+      "terracotta-clay": {
+        "role": "secondary",
+        "displayName": "Terracotta Clay",
+        "canonical": "oklch(0.55 0.14 35)",
+        "tonalRamp": [
+          "oklch(0.25 0.08 35)",
+          "oklch(0.35 0.10 35)",
+          "oklch(0.48 0.14 35)",
+          "oklch(0.55 0.14 35)",
+          "oklch(0.65 0.12 35)",
+          "oklch(0.75 0.08 35)",
+          "oklch(0.85 0.05 35)",
+          "oklch(0.94 0.02 35)"
+        ]
+      },
+      "whatsapp-leaf": {
+        "role": "tertiary",
+        "displayName": "WhatsApp Leaf",
+        "canonical": "#25d366",
+        "tonalRamp": [
+          "#0a4d24",
+          "#107a38",
+          "#1fad54",
+          "#25d366",
+          "#4ddb82",
+          "#7ae49f",
+          "#a8edbd",
+          "#d4f6dd"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headline. One instance on the page." },
+      "headline": { "displayName": "Headline", "purpose": "Section headings: about, plants, how to visit, final CTA." },
+      "title": { "displayName": "Title", "purpose": "Plant names, card headings, step titles." },
+      "body": { "displayName": "Body", "purpose": "All running text. 18px minimum, generous line height." },
+      "label": { "displayName": "Label", "purpose": "Section kickers, step numbers, chip text. Uppercase, semibold." }
+    },
+    "shadows": [
+      { "name": "card-hover", "value": "0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)", "purpose": "Featured plant cards on desktop hover only." },
+      { "name": "floating", "value": "0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)", "purpose": "Floating WhatsApp button, always visible." }
+    ],
+    "motion": [
+      { "name": "ease-standard", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Scroll reveal animation easing." },
+      { "name": "duration-color", "value": "200ms", "purpose": "Button and link color transitions." },
+      { "name": "duration-reveal", "value": "600ms", "purpose": "Scroll reveal entrance animation." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "WhatsApp Button",
+      "kind": "button",
+      "refersTo": "button-whatsapp",
+      "description": "Primary conversion button. Opens WhatsApp conversation with George.",
+      "html": "<a class=\"ds-btn-whatsapp\" href=\"#\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7.9 20A9 9 0 1 0 4 16.1L2 22Z\"/></svg> WhatsApp George</a>",
+      "css": ".ds-btn-whatsapp { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #25d366; color: #fafaf8; padding: 14px 28px; border-radius: 9999px; font-size: 16px; font-weight: 600; font-family: 'Source Sans 3', system-ui, sans-serif; text-decoration: none; transition: background 200ms; } .ds-btn-whatsapp:hover { background: #1fad54; } .ds-btn-whatsapp:focus-visible { outline: 2px solid #4a8c5a; outline-offset: 2px; }"
+    },
+    {
+      "name": "Phone Button",
+      "kind": "button",
+      "refersTo": "button-phone",
+      "description": "Secondary contact button on dark backgrounds. Tappable tel: link.",
+      "html": "<a class=\"ds-btn-phone\" href=\"#\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z\"/></svg> (407) 619-9561</a>",
+      "css": ".ds-btn-phone { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255,255,255,0.1); color: #fafaf8; padding: 14px 28px; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.2); font-size: 16px; font-weight: 600; font-family: 'Source Sans 3', system-ui, sans-serif; text-decoration: none; transition: background 200ms; } .ds-btn-phone:hover { background: rgba(255,255,255,0.2); } .ds-btn-phone:focus-visible { outline: 2px solid #4a8c5a; outline-offset: 2px; }"
+    },
+    {
+      "name": "Variety Chip",
+      "kind": "chip",
+      "refersTo": "chip-variety",
+      "description": "Static chip showing a plant variety name. Informational, not interactive.",
+      "html": "<span class=\"ds-chip-variety\">Alphonso</span>",
+      "css": ".ds-chip-variety { display: inline-block; background: oklch(0.94 0.04 155); color: oklch(0.30 0.10 155); font-size: 12px; font-weight: 500; font-family: 'Source Sans 3', system-ui, sans-serif; padding: 4px 10px; border-radius: 9999px; }"
+    },
+    {
+      "name": "Featured Plant Card",
+      "kind": "card",
+      "refersTo": "plant-card-featured",
+      "description": "Large card for featured plants. Shows emoji, name, tagline, description, and variety chips.",
+      "html": "<div class=\"ds-card-plant\"><div class=\"ds-card-plant-header\"><span class=\"ds-card-plant-emoji\">🥭</span><div><strong class=\"ds-card-plant-name\">Mango</strong><span class=\"ds-card-plant-tagline\">12+ varieties including Indian favorites</span></div></div><p class=\"ds-card-plant-desc\">Our biggest collection. From the king of mangoes...</p><div class=\"ds-card-plant-chips\"><span class=\"ds-chip-variety\">Alphonso</span><span class=\"ds-chip-variety\">Kesar</span><span class=\"ds-chip-variety\">Neelum</span><span class=\"ds-chip-variety\">Kent</span><span class=\"ds-chip-more\">+8 more</span></div></div>",
+      "css": ".ds-card-plant { background: #fff; border-radius: 16px; padding: 24px; border: 1px solid oklch(0.94 0.04 155 / 0.4); transition: box-shadow 300ms; } .ds-card-plant:hover { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1); } .ds-card-plant-header { display: flex; align-items: center; gap: 12px; } .ds-card-plant-emoji { font-size: 28px; } .ds-card-plant-name { display: block; font-family: Bitter, Georgia, serif; font-weight: 700; font-size: 18px; color: oklch(0.30 0.10 155); } .ds-card-plant-tagline { display: block; font-size: 14px; font-weight: 500; color: oklch(0.44 0.13 155); font-family: 'Source Sans 3', system-ui, sans-serif; } .ds-card-plant-desc { margin-top: 12px; font-size: 14px; color: oklch(0.45 0.02 60); line-height: 1.6; font-family: 'Source Sans 3', system-ui, sans-serif; } .ds-card-plant-chips { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px; } .ds-chip-variety { display: inline-block; background: oklch(0.94 0.04 155); color: oklch(0.30 0.10 155); font-size: 12px; font-weight: 500; font-family: 'Source Sans 3', system-ui, sans-serif; padding: 4px 10px; border-radius: 9999px; } .ds-chip-more { font-size: 12px; font-weight: 500; color: oklch(0.45 0.02 60); padding: 4px 10px; font-family: 'Source Sans 3', system-ui, sans-serif; }"
+    },
+    {
+      "name": "Sticky Header",
+      "kind": "nav",
+      "refersTo": "header",
+      "description": "Minimal sticky header. Wordmark left, phone icon + WhatsApp pill right. No nav links.",
+      "html": "<header class=\"ds-header\"><a class=\"ds-header-brand\" href=\"#\">Tess Farms</a><div class=\"ds-header-actions\"><a class=\"ds-header-phone\" href=\"#\" aria-label=\"Call George\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z\"/></svg></a><a class=\"ds-header-wa\" href=\"#\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7.9 20A9 9 0 1 0 4 16.1L2 22Z\"/></svg> WhatsApp</a></div></header>",
+      "css": ".ds-header { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; height: 56px; padding: 0 20px; background: rgba(255,255,255,0.9); backdrop-filter: blur(8px); border-bottom: 1px solid oklch(0.94 0.04 155 / 0.6); } .ds-header-brand { font-family: Bitter, Georgia, serif; font-weight: 700; font-size: 18px; color: oklch(0.30 0.10 155); text-decoration: none; } .ds-header-actions { display: flex; align-items: center; gap: 8px; } .ds-header-phone { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 9999px; color: oklch(0.30 0.10 155); transition: background 200ms; text-decoration: none; } .ds-header-phone:hover { background: oklch(0.94 0.04 155 / 0.5); } .ds-header-wa { display: inline-flex; align-items: center; gap: 8px; background: #25d366; color: #fafaf8; padding: 8px 20px; border-radius: 9999px; font-size: 14px; font-weight: 600; font-family: 'Source Sans 3', system-ui, sans-serif; text-decoration: none; transition: background 200ms; } .ds-header-wa:hover { background: #1fad54; }"
+    },
+    {
+      "name": "Floating WhatsApp",
+      "kind": "button",
+      "refersTo": "floating-whatsapp",
+      "description": "Fixed floating button, bottom-right. Appears after scrolling past the hero.",
+      "html": "<a class=\"ds-fab-whatsapp\" href=\"#\" aria-label=\"Message George on WhatsApp\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7.9 20A9 9 0 1 0 4 16.1L2 22Z\"/></svg></a>",
+      "css": ".ds-fab-whatsapp { position: fixed; bottom: 24px; right: 24px; z-index: 50; display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; background: #25d366; color: #fafaf8; border-radius: 9999px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1); text-decoration: none; transition: transform 200ms; } .ds-fab-whatsapp:hover { transform: scale(1.1); } .ds-fab-whatsapp:active { transform: scale(0.95); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Uncle's Garden",
+    "overview": "A single scrolling page that feels like walking into George's nursery: warm soil underfoot, rows of labeled plants, someone who knows your name and what you're looking for. Not polished, not corporate, not trying to impress. Just abundant, real, and deeply personal. Every section exists to build trust and push toward one action: contact George.\n\nThe design is grounded in earth tones and nursery greens, with Bitter's sturdy serif giving headings the weight of hand-lettered plant stakes. Source Sans 3 keeps body text clear and unhurried. The palette stays warm (cream backgrounds, soil-toned text, sage greens) with terracotta clay as the non-contact action color and WhatsApp green reserved exclusively for conversion buttons, because that's how George's customers actually reach him.",
+    "keyCharacteristics": [
+      "Single scrolling page; no multi-page navigation",
+      "Warm earth palette with green accents; terracotta for non-WhatsApp CTAs",
+      "WhatsApp green as the dominant conversion color",
+      "Floating WhatsApp button visible after scrolling past the hero",
+      "Bitter serif headings: sturdy, readable, not decorative",
+      "Large text throughout for older users on mobile (75% mobile audience)",
+      "Soft, rounded surfaces; pill-shaped buttons; no sharp edges",
+      "Flat elevation with tonal layering",
+      "Minimal sticky header: wordmark + phone icon + WhatsApp pill"
+    ],
+    "rules": [
+      { "name": "The WhatsApp Rule", "body": "WhatsApp green (#25d366) appears only on elements that open a WhatsApp conversation. It is never used as a decorative color, section background, or accent. Its scarcity is what makes it unmissable.", "section": "colors" },
+      { "name": "The No-Cool Rule", "body": "Every neutral in the system is warm-tinted (hue 60-80 in OKLCH). There is no blue-gray, no slate, no cool undertone anywhere. The warmth is the brand.", "section": "colors" },
+      { "name": "The Bookend Rule", "body": "The page opens and closes with Nursery Green sections (hero + final CTA), creating a visual frame. Mid-page sections alternate between white, cream, and sage-light.", "section": "colors" },
+      { "name": "The 18px Floor Rule", "body": "Body text never drops below 18px (1.125rem). Many visitors are older, browsing on phones. Readability is non-negotiable.", "section": "typography" },
+      { "name": "The Flat Earth Rule", "body": "Surfaces are flat. Depth comes from color shifts between sections, not from shadows or borders. Exception: the floating WhatsApp button.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use WhatsApp green exclusively on buttons that initiate a WhatsApp conversation with George.",
+      "Do keep body text at 18px (1.125rem) minimum.",
+      "Do alternate section backgrounds to create visual rhythm without borders or shadows.",
+      "Do show George's real name, real phone number, and real social links.",
+      "Do use Bitter serif only for headings. Body text is always Source Sans 3.",
+      "Do ensure the WhatsApp + Phone CTA pair appears in both the hero and the final section.",
+      "Do use plant variety names as chips.",
+      "Do keep touch targets at 48px+ minimum.",
+      "Do make the phone number a tappable tel: link everywhere it appears."
+    ],
+    "donts": [
+      "Don't use stock photography of generic gardens, white suburban families, or tropical resorts.",
+      "Don't add shadows to cards or sections.",
+      "Don't use cool-toned neutrals (slate, gray-blue, zinc).",
+      "Don't use glassmorphism, gradient text, or side-stripe borders.",
+      "Don't make the site feel SaaS.",
+      "Don't clutter sections with walls of text or inconsistent styling.",
+      "Don't use plant mom aesthetics: millennial pink, monstera illustrations, lifestyle-blogger typography.",
+      "Don't hide the phone number or WhatsApp link.",
+      "Don't add multi-page navigation.",
+      "Don't add a traditional nav bar with page links."
+    ]
+  }
+}
