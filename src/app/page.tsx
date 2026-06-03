@@ -10,6 +10,8 @@ const HERO_PHOTO =
 const CTA_PHOTO =
   "https://images.unsplash.com/photo-1602298674761-700e96568f5f?auto=format&fit=crop&w=1920&q=80";
 
+const WA_MSG = encodeURIComponent("Hi George, I saw your website and I\u2019m interested in visiting the nursery.");
+
 export default function HomePage() {
   const { homepage, about, visit, business } = siteContent;
 
@@ -43,7 +45,7 @@ export default function HomePage() {
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <a
-              href={`https://wa.me/${business.whatsapp}`}
+              href={`https://wa.me/${business.whatsapp}?text=${WA_MSG}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-[#25d366] text-white px-8 py-4 rounded-full text-lg font-semibold font-site-body transition-colors duration-200 hover:bg-[#1fad54]"
@@ -66,6 +68,10 @@ export default function HomePage() {
       <section className="py-20 sm:py-28 bg-site-cream">
         <div className="max-w-3xl px-6 sm:px-10 lg:px-16">
           <RevealOnScroll>
+            {/* TODO: Replace with a real photo of George in his nursery */}
+            <div className="mb-8 w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden bg-site-sage-light/50 flex items-center justify-center">
+              <span className="text-site-sage text-sm font-site-body text-center px-2">George&apos;s photo</span>
+            </div>
             <h2 className="font-site-heading font-bold text-[clamp(1.5rem,3vw,2.25rem)] leading-tight text-site-soil">
               {about.headline}
             </h2>
@@ -83,7 +89,7 @@ export default function HomePage() {
                 className="inline-flex items-center gap-1.5 px-3 py-2.5 min-h-[44px] rounded-lg hover:text-site-soil hover:bg-site-sage-light/40 transition-colors"
               >
                 <Video className="w-5 h-5" />
-                YouTube
+                George&apos;s growing tips
               </a>
               <a
                 href={business.social.facebook}
@@ -150,7 +156,7 @@ export default function HomePage() {
               George also grows guava, parijat (night jasmine), fig, sapodilla,
               papaya, and more. The list changes with the seasons.{" "}
               <a
-                href={`https://wa.me/${business.whatsapp}`}
+                href={`https://wa.me/${business.whatsapp}?text=${WA_MSG}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-site-sage font-semibold hover:text-site-forest transition-colors underline underline-offset-2"
@@ -163,35 +169,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Visit ────────────────────────────────────────── */}
+      {/* ── Good to Know ──────────────────────────────────── */}
       <section className="py-16 sm:py-24 bg-site-cream">
         <div className="max-w-3xl px-6 sm:px-10 lg:px-16">
           <RevealOnScroll>
             <h2 className="font-site-heading font-bold text-[clamp(1.5rem,3vw,2.25rem)] leading-tight text-site-soil">
-              Visit the nursery
+              Good to know
             </h2>
-            <p className="mt-5 text-lg leading-[1.7] text-site-soil-muted max-w-[60ch]">
-              {visit.intro}
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <a
-                href={`https://wa.me/${business.whatsapp}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-[#25d366] text-white px-8 py-4 rounded-full text-lg font-semibold font-site-body transition-colors duration-200 hover:bg-[#1fad54]"
-              >
-                <MessageCircle className="w-5 h-5" />
-                WhatsApp George
-              </a>
-              <a
-                href={`tel:${business.phone.replace(/\D/g, "")}`}
-                className="inline-flex items-center justify-center gap-2 bg-site-soil text-white px-7 py-3.5 rounded-full text-base font-semibold font-site-body transition-colors duration-200 hover:bg-site-soil/90"
-              >
-                <Phone className="w-5 h-5" />
-                {business.phone}
-              </a>
-            </div>
-            <p className="mt-6 text-sm text-site-soil-muted">
+            <dl className="mt-8 space-y-6">
+              {siteContent.faq.map((item) => (
+                <div key={item.q}>
+                  <dt className="font-site-body font-semibold text-base text-site-soil">
+                    {item.q}
+                  </dt>
+                  <dd className="mt-1.5 text-base leading-relaxed text-site-soil-muted max-w-[55ch]">
+                    {item.a}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            <p className="mt-8 text-sm text-site-soil-muted">
               Serving {business.address.serving}
             </p>
           </RevealOnScroll>
@@ -225,7 +222,7 @@ export default function HomePage() {
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
               <a
-                href={`https://wa.me/${business.whatsapp}`}
+                href={`https://wa.me/${business.whatsapp}?text=${WA_MSG}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-[#25d366] text-white px-8 py-4 rounded-full text-lg font-semibold font-site-body transition-colors duration-200 hover:bg-[#1fad54]"

@@ -26,7 +26,7 @@ export function FloatingWhatsApp({ phone }: { phone: string }) {
 
   return (
     <a
-      href={`https://wa.me/${phone}`}
+      href={`https://wa.me/${phone}?text=${encodeURIComponent("Hi George, I saw your website and I\u2019m interested in visiting the nursery.")}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Message George on WhatsApp"

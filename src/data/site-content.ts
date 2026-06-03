@@ -69,6 +69,29 @@ export const siteContent = {
       "Availability changes with the seasons. Call or WhatsApp George to check what's in stock before you visit.",
   },
 
+  faq: [
+    {
+      q: "How do I visit?",
+      a: "Call or WhatsApp George to schedule a time. The nursery is by appointment only, from George's property in Central Florida.",
+    },
+    {
+      q: "Do you deliver?",
+      a: "Delivery may be available for larger orders in the Lake Nona, St. Cloud, and Kissimmee area. Ask George when you call.",
+    },
+    {
+      q: "How much do plants cost?",
+      a: "Prices vary by plant type and size. George will walk you through options when you visit or call.",
+    },
+    {
+      q: "What payment do you accept?",
+      a: "Cash, Zelle, and Venmo. George will confirm when you schedule your visit.",
+    },
+    {
+      q: "When is the best time to plant?",
+      a: "Central Florida's climate lets you plant most tropicals year-round. George will advise on timing for specific plants.",
+    },
+  ],
+
   visit: {
     headline: "Visit the nursery",
     intro:

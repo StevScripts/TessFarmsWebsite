@@ -51,6 +51,11 @@
   .site-reveal.is-visible { animation: none; }
 }
 
+/* Ensure content is visible when JS is disabled */
+@media (scripting: none) {
+  .site-reveal { opacity: 1; }
+}
+
 /* ── Focus styles ─────────────────────────────────────── */
 :focus-visible {
   outline: 2px solid var(--site-sage);
