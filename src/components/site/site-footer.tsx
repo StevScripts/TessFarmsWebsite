@@ -11,15 +11,15 @@ export function SiteFooter() {
             <p className="font-site-heading font-bold text-base text-white">
               Tess Farms LLC
             </p>
-            <p className="text-xs text-white/50 mt-1">
+            <p className="text-xs text-white/60 mt-1">
               {business.hours.note} &middot; {business.address.serving}
             </p>
           </div>
 
-          <div className="flex items-center gap-4 text-sm text-white/60">
+          <div className="flex items-center gap-2 text-sm text-white/70">
             <a
               href={`tel:${business.phone.replace(/\D/g, "")}`}
-              className="hover:text-white transition-colors"
+              className="inline-flex items-center px-3 py-2.5 min-h-[44px] rounded-lg hover:text-white hover:bg-white/10 transition-colors"
             >
               {business.phone}
             </a>
@@ -27,7 +27,7 @@ export function SiteFooter() {
               href={business.social.youtube}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
+              className="inline-flex items-center px-3 py-2.5 min-h-[44px] rounded-lg hover:text-white hover:bg-white/10 transition-colors"
             >
               YouTube
             </a>
@@ -35,7 +35,7 @@ export function SiteFooter() {
               href={business.social.facebook}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
+              className="inline-flex items-center px-3 py-2.5 min-h-[44px] rounded-lg hover:text-white hover:bg-white/10 transition-colors"
             >
               Facebook
             </a>
@@ -43,7 +43,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-6 pt-4 border-t border-white/10 text-center">
-          <p className="text-xs text-white/40">
+          <p className="text-xs text-white/60">
             &copy; {new Date().getFullYear()} Tess Farms LLC. All rights reserved.
           </p>
         </div>

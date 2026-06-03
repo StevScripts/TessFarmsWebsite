@@ -54,19 +54,11 @@ export const siteContent = {
   },
 
   about: {
-    headline: "A nursery born from homesickness",
-    intro:
-      "George came to the U.S. from India and quickly realized something was missing. Not just the food or the festivals \u2014 but the plants. The curry leaf tree outside the kitchen. The jasmine that perfumed the evening air. The mango tree that meant summer was here. Those plants exist in Florida, but finding them? That was the hard part.",
-    story: {
-      headline: "From backyard to nursery",
-      text: "What started as George growing a few trees for his own family turned into something bigger. Neighbors asked for cuttings. Friends asked where he found his Alphonso mango. Word spread through the Indian community in Lake Nona, then St. Cloud, then Kissimmee. Five years later, Tess Farms supplies dozens of families across Central Florida with the plants they thought they'd left behind.",
-    },
-    educator: {
-      headline: "A teacher at heart",
-      text: "George isn't just a grower \u2014 he's an educator. He'll tell you which mango variety fruits best in your microclimate, how to overwinter your curry leaf, and why your jasmine isn't blooming. Every visit to Tess Farms is part shopping, part lesson. He believes the best way to keep these plants thriving in America is to teach people how to grow them right.",
-    },
+    headline: "Meet George",
+    blurb:
+      "George moved from India to Florida and missed the plants he grew up with. So he started growing them himself. What began as a few trees in his backyard became Tess Farms: a nursery supplying curry leaf, mango, jasmine, and more to Indian families across Central Florida. He's an educator at heart. Every visit is part shopping, part lesson.",
     mission:
-      "To bring the plants of home to every Indian family in Central Florida \u2014 and to teach them how to make those plants thrive.",
+      "To bring the plants of home to every Indian family in Central Florida, and to teach them how to make those plants thrive.",
   },
 
   plants: {

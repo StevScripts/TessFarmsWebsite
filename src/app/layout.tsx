@@ -56,8 +56,14 @@ export default function RootLayout({
       <body
         className={`${bitter.variable} ${sourceSans.variable} font-site-body bg-site-cream text-site-soil`}
       >
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-site-forest focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-semibold"
+        >
+          Skip to content
+        </a>
         <SiteHeader />
-        <main className="min-h-screen">{children}</main>
+        <main id="main" className="min-h-screen">{children}</main>
         <SiteFooter />
       </body>
     </html>

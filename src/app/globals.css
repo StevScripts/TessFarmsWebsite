@@ -2,7 +2,6 @@
 
 @theme inline {
   --font-sans: system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
-  /* Site color tokens */
   --color-site-forest: var(--site-forest);
   --color-site-sage: var(--site-sage);
   --color-site-sage-light: var(--site-sage-light);
@@ -21,7 +20,7 @@
   --site-sage-light:      oklch(0.94 0.04 155);
   --site-cream:           oklch(0.96 0.012 75);
   --site-soil:            oklch(0.25 0.03 60);
-  --site-soil-muted:      oklch(0.45 0.02 60);
+  --site-soil-muted:      oklch(0.38 0.02 60);
   --site-terracotta:      oklch(0.55 0.14 35);
   --site-terracotta-hover:oklch(0.48 0.14 35);
 }
@@ -33,9 +32,9 @@
   }
 }
 
-/* ── Site: scroll reveal ──────────────────────────────────── */
+/* ── Scroll reveal ──────────────────────────────────────── */
 @keyframes reveal-up {
-  from { opacity: 0; transform: translateY(24px); }
+  from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
@@ -44,10 +43,21 @@
 }
 
 .site-reveal.is-visible {
-  animation: reveal-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: reveal-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .site-reveal { opacity: 1; }
   .site-reveal.is-visible { animation: none; }
+}
+
+/* ── Focus styles ─────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--site-sage);
+  outline-offset: 2px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  border-radius: 4px;
 }

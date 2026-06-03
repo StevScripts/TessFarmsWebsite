@@ -1,152 +1,97 @@
-import { Phone, MessageCircle, Calendar, ShoppingBag, Video, Users } from "lucide-react";
+import { Phone, MessageCircle, Video, Users } from "lucide-react";
 import Image from "next/image";
 import { siteContent } from "@/data/site-content";
 import { plantCatalog } from "@/data/plant-catalog";
 import { RevealOnScroll } from "@/components/site/reveal-on-scroll";
 import { FloatingWhatsApp } from "@/components/site/floating-whatsapp";
 
+const HERO_PHOTO =
+  "https://images.unsplash.com/photo-1621849400072-f554417f7051?auto=format&fit=crop&w=1920&q=80";
+const CTA_PHOTO =
+  "https://images.unsplash.com/photo-1602298674761-700e96568f5f?auto=format&fit=crop&w=1920&q=80";
+
 export default function HomePage() {
   const { homepage, about, visit, business } = siteContent;
-  const featured = plantCatalog.filter((p) => p.featured);
-  const remaining = plantCatalog.filter((p) => !p.featured);
 
   return (
     <>
-      {/* ── Hero ────────────────────────────────────────────── */}
-      <section id="hero" className="relative bg-site-forest text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(68,130,100,0.4)_0%,_transparent_60%)]" />
-        <div className="relative z-10 mx-auto max-w-6xl px-5 sm:px-8 py-16 sm:py-24 lg:py-32">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:gap-16">
-            {/* Text */}
-            <div className="flex-1">
-              <h1 className="font-site-heading font-bold text-3xl sm:text-4xl lg:text-5xl leading-tight max-w-2xl">
-                {homepage.hero.headline}
-              </h1>
-              <p className="mt-5 text-lg sm:text-xl text-white/80 max-w-xl leading-relaxed">
-                {homepage.hero.subheadline}
-              </p>
-              <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                <a
-                  href={`https://wa.me/${business.whatsapp}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-[#25d366] text-white px-7 py-3.5 rounded-full text-base font-semibold font-site-body transition-colors duration-200 hover:bg-[#1fad54]"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  WhatsApp George
-                </a>
-                <a
-                  href={`tel:${business.phone.replace(/\D/g, "")}`}
-                  className="inline-flex items-center justify-center gap-2 bg-white/10 text-white border border-white/20 px-7 py-3.5 rounded-full text-base font-semibold font-site-body transition-colors duration-200 hover:bg-white/20"
-                >
-                  <Phone className="w-5 h-5" />
-                  {business.phone}
-                </a>
-              </div>
-            </div>
-
-            {/* George's Photo Placeholder */}
-            <div className="mt-10 lg:mt-0 flex-shrink-0">
-              <div className="relative w-56 h-56 sm:w-64 sm:h-64 lg:w-80 lg:h-80 mx-auto lg:mx-0">
-                <div className="absolute inset-0 rounded-2xl bg-white/10 overflow-hidden">
-                  <Image
-                    src="/george-placeholder.jpg"
-                    alt="George, founder of Tess Farms"
-                    fill
-                    className="object-cover rounded-2xl"
-                    priority
-                    sizes="(max-width: 640px) 224px, (max-width: 1024px) 256px, 320px"
-                    unoptimized
-                  />
-                  {/* Fallback if image doesn't exist yet */}
-                  <div className="absolute inset-0 bg-white/5 rounded-2xl flex items-center justify-center">
-                    <div className="text-center text-white/40">
-                      <span className="text-6xl block mb-2">🌿</span>
-                      <span className="text-sm font-site-body">George&apos;s photo</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+      {/* ── Hero ─────────────────────────────────────────── */}
+      <section id="hero" className="relative min-h-[85vh] flex items-end overflow-hidden">
+        <Image
+          src={HERO_PHOTO}
+          alt="Lush tropical garden with dense green foliage in warm sunlight"
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to top, oklch(0.14 0.02 60 / 0.88) 0%, oklch(0.14 0.02 60 / 0.5) 40%, oklch(0.14 0.02 60 / 0.15) 70%, transparent 100%)",
+          }}
+        />
+        <div className="relative z-10 w-full max-w-4xl px-6 sm:px-10 lg:px-16 pb-14 sm:pb-20 lg:pb-24">
+          <h1 className="font-site-heading font-bold text-[clamp(2.25rem,5.5vw,4rem)] leading-[1.1] tracking-tight text-white max-w-[18ch]">
+            {homepage.hero.headline}
+          </h1>
+          <p className="mt-5 text-lg sm:text-xl leading-relaxed text-white/90 max-w-[50ch]">
+            Alphonso mango, curry leaf, jasmine, and more. Indian plants raised
+            in Central Florida soil by George, an educator and grower serving the
+            community for over five years.
+          </p>
+          <div className="mt-8 flex flex-col sm:flex-row gap-3">
+            <a
+              href={`https://wa.me/${business.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-[#25d366] text-white px-8 py-4 rounded-full text-lg font-semibold font-site-body transition-colors duration-200 hover:bg-[#1fad54]"
+            >
+              <MessageCircle className="w-5 h-5" />
+              WhatsApp George
+            </a>
+            <a
+              href={`tel:${business.phone.replace(/\D/g, "")}`}
+              className="inline-flex items-center justify-center gap-2 bg-white/10 text-white border border-white/20 px-7 py-3.5 rounded-full text-base font-semibold font-site-body transition-colors duration-200 hover:bg-white/20"
+            >
+              <Phone className="w-5 h-5" />
+              {business.phone}
+            </a>
           </div>
         </div>
       </section>
 
-      {/* ── Stats Bar ──────────────────────────────────────── */}
-      <section className="bg-white border-b border-site-sage-light/60">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8 py-10">
-          <div className="grid grid-cols-3 gap-4 sm:gap-8 text-center">
-            {homepage.highlights.map((h) => (
-              <div key={h.label}>
-                <p className="font-site-heading font-bold text-2xl sm:text-4xl text-site-forest">
-                  {h.stat}
-                </p>
-                <p className="mt-1 font-semibold text-site-soil text-sm sm:text-base">{h.label}</p>
-                <p className="mt-0.5 text-xs sm:text-sm text-site-soil-muted hidden sm:block">{h.detail}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── About George ──────────────────────────────────── */}
-      <section id="about" className="py-16 sm:py-24 bg-site-sage-light/40">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8">
+      {/* ── About George ─────────────────────────────────── */}
+      <section className="py-20 sm:py-28 bg-site-cream">
+        <div className="max-w-3xl px-6 sm:px-10 lg:px-16">
           <RevealOnScroll>
-            <div className="max-w-3xl">
-              <p className="text-sm font-semibold text-site-sage uppercase tracking-wider font-site-body mb-3">
-                Meet George
-              </p>
-              <h2 className="font-site-heading font-bold text-2xl sm:text-3xl lg:text-4xl text-site-forest leading-tight">
-                {about.headline}
-              </h2>
-              <p className="mt-5 text-site-soil leading-relaxed text-base sm:text-lg">
-                {about.intro}
-              </p>
-            </div>
-          </RevealOnScroll>
-
-          <RevealOnScroll>
-            <div className="mt-12 max-w-3xl">
-              <h3 className="font-site-heading font-bold text-xl sm:text-2xl text-site-forest">
-                {about.story.headline}
-              </h3>
-              <p className="mt-3 text-site-soil leading-relaxed text-base sm:text-lg">
-                {about.story.text}
-              </p>
-            </div>
-          </RevealOnScroll>
-
-          <RevealOnScroll>
-            <div className="mt-12 max-w-3xl">
-              <h3 className="font-site-heading font-bold text-xl sm:text-2xl text-site-forest">
-                {about.educator.headline}
-              </h3>
-              <p className="mt-3 text-site-soil leading-relaxed text-base sm:text-lg">
-                {about.educator.text}
-              </p>
-            </div>
-          </RevealOnScroll>
-
-          <RevealOnScroll>
-            <div className="mt-12 flex items-center gap-4 text-sm text-site-soil-muted font-site-body">
-              <span>Follow George:</span>
+            <h2 className="font-site-heading font-bold text-[clamp(1.5rem,3vw,2.25rem)] leading-tight text-site-soil">
+              {about.headline}
+            </h2>
+            <p className="mt-5 text-lg leading-[1.7] text-site-soil-muted max-w-[60ch]">
+              {about.blurb}
+            </p>
+            <p className="mt-6 font-site-heading italic text-lg leading-snug text-site-soil/70 max-w-[55ch]">
+              &ldquo;{about.mission}&rdquo;
+            </p>
+            <div className="mt-6 flex items-center gap-2 text-sm text-site-soil-muted font-site-body">
               <a
                 href={business.social.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 hover:text-site-forest transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-2.5 min-h-[44px] rounded-lg hover:text-site-soil hover:bg-site-sage-light/40 transition-colors"
               >
-                <Video className="w-4 h-4" />
+                <Video className="w-5 h-5" />
                 YouTube
               </a>
               <a
                 href={business.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 hover:text-site-forest transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-2.5 min-h-[44px] rounded-lg hover:text-site-soil hover:bg-site-sage-light/40 transition-colors"
               >
-                <Users className="w-4 h-4" />
+                <Users className="w-5 h-5" />
                 Facebook
               </a>
             </div>
@@ -154,154 +99,127 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Mission Quote ─────────────────────────────────── */}
-      <section className="py-14 sm:py-20 bg-white">
-        <div className="mx-auto max-w-3xl px-5 sm:px-8 text-center">
+      {/* ── What We Grow ─────────────────────────────────── */}
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="mx-auto max-w-5xl px-6 sm:px-10 lg:px-16">
           <RevealOnScroll>
-            <blockquote className="font-site-heading text-xl sm:text-2xl lg:text-3xl text-site-forest leading-snug font-medium italic">
-              &ldquo;{about.mission}&rdquo;
-            </blockquote>
-          </RevealOnScroll>
-        </div>
-      </section>
-
-      {/* ── What We Grow ──────────────────────────────────── */}
-      <section id="plants" className="py-16 sm:py-24 bg-site-cream">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8">
-          <RevealOnScroll>
-            <h2 className="font-site-heading font-bold text-2xl sm:text-3xl lg:text-4xl text-site-forest">
-              Plants from back home
+            <h2 className="font-site-heading font-bold text-[clamp(1.5rem,3vw,2.25rem)] leading-tight text-site-soil">
+              What we grow
             </h2>
-            <p className="mt-3 text-site-soil-muted text-base sm:text-lg max-w-2xl leading-relaxed">
-              The trees, flowers, and herbs that Indian families grew up with.
-              Stock changes with the season; call or WhatsApp for current availability.
+            <p className="mt-3 text-site-soil-muted text-base sm:text-lg max-w-[55ch] leading-relaxed">
+              Stock changes with the season. Call or WhatsApp George for what&apos;s available.
             </p>
           </RevealOnScroll>
 
-          {/* Featured plants — larger cards */}
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {featured.map((plant, i) => (
-              <RevealOnScroll key={plant.id} delay={i * 80}>
-                <div className="bg-white rounded-2xl p-6 sm:p-8 transition-shadow duration-300 hover:shadow-lg border border-site-sage-light/40">
-                  <div className="flex items-center gap-3">
-                    <span className="text-3xl sm:text-4xl">{plant.icon}</span>
-                    <div>
-                      <h3 className="font-site-heading font-bold text-lg sm:text-xl text-site-forest">
-                        {plant.name}
-                      </h3>
-                      <p className="text-sm font-medium text-site-sage">
-                        {plant.tagline}
-                      </p>
+          <div className="mt-12 sm:mt-16 space-y-14 sm:space-y-20">
+            {plantCatalog.map((plant, i) => (
+              <RevealOnScroll key={plant.id} delay={i * 60}>
+                <div className={`flex flex-col ${i % 2 === 1 ? "sm:flex-row-reverse" : "sm:flex-row"} gap-6 sm:gap-10 items-start`}>
+                  <div className="w-full sm:w-[280px] lg:w-[340px] flex-shrink-0">
+                    <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
+                      <Image
+                        src={plant.photo}
+                        alt={plant.photoAlt}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 100vw, 340px"
+                      />
                     </div>
                   </div>
-                  <p className="mt-3 text-site-soil-muted text-sm sm:text-base leading-relaxed">
-                    {plant.description}
-                  </p>
-                  {plant.varieties.length > 1 && (
-                    <div className="mt-4 flex flex-wrap gap-1.5">
-                      {plant.varieties.slice(0, 4).map((v) => (
-                        <span
-                          key={v}
-                          className="inline-block bg-site-sage-light text-site-forest text-xs font-medium px-2.5 py-1 rounded-full"
-                        >
-                          {v}
-                        </span>
-                      ))}
-                      {plant.varieties.length > 4 && (
-                        <span className="inline-block text-site-soil-muted text-xs font-medium px-2.5 py-1">
-                          +{plant.varieties.length - 4} more
-                        </span>
-                      )}
-                    </div>
-                  )}
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-site-heading font-bold text-xl sm:text-2xl text-site-soil">
+                      {plant.name}
+                    </h3>
+                    <p className="mt-2 text-site-soil-muted text-base leading-relaxed max-w-[50ch]">
+                      {plant.tagline}
+                    </p>
+                    {plant.varieties.length > 1 && (
+                      <p className="mt-3 text-base text-site-soil-muted/80 font-site-body">
+                        <span className="font-semibold text-site-sage">Varieties:</span>{" "}
+                        {plant.varieties.join(", ")}
+                      </p>
+                    )}
+                  </div>
                 </div>
               </RevealOnScroll>
             ))}
           </div>
 
-          {/* Remaining plants — compact list */}
           <RevealOnScroll>
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {remaining.map((plant) => (
-                <div
-                  key={plant.id}
-                  className="flex items-start gap-3 bg-white rounded-xl p-4 border border-site-sage-light/30"
-                >
-                  <span className="text-2xl flex-shrink-0 mt-0.5">{plant.icon}</span>
-                  <div>
-                    <h3 className="font-site-heading font-bold text-base text-site-forest">
-                      {plant.name}
-                    </h3>
-                    <p className="text-sm text-site-soil-muted leading-relaxed mt-0.5">
-                      {plant.tagline}
-                    </p>
-                    {plant.varieties.length > 0 && plant.varieties[0] !== plant.name && (
-                      <div className="mt-2 flex flex-wrap gap-1">
-                        {plant.varieties.map((v) => (
-                          <span
-                            key={v}
-                            className="inline-block bg-site-sage-light text-site-forest text-xs font-medium px-2 py-0.5 rounded-full"
-                          >
-                            {v}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </RevealOnScroll>
-        </div>
-      </section>
-
-      {/* ── How It Works ──────────────────────────────────── */}
-      <section id="visit" className="py-16 sm:py-24 bg-white">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8">
-          <RevealOnScroll>
-            <h2 className="font-site-heading font-bold text-2xl sm:text-3xl lg:text-4xl text-site-forest text-center">
-              How to visit
-            </h2>
-            <p className="mt-3 text-site-soil-muted text-center text-base sm:text-lg max-w-xl mx-auto">
-              {visit.intro}
+            <p className="mt-14 text-site-soil-muted text-base leading-relaxed max-w-[55ch]">
+              George also grows guava, parijat (night jasmine), fig, sapodilla,
+              papaya, and more. The list changes with the seasons.{" "}
+              <a
+                href={`https://wa.me/${business.whatsapp}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-site-sage font-semibold hover:text-site-forest transition-colors underline underline-offset-2"
+              >
+                Ask George what&apos;s in stock
+              </a>
+              .
             </p>
           </RevealOnScroll>
-
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {visit.howItWorks.map((step, i) => {
-              const icons = [MessageCircle, Calendar, ShoppingBag];
-              const Icon = icons[i];
-              return (
-                <RevealOnScroll key={step.step} delay={i * 100}>
-                  <div className="bg-site-cream rounded-2xl p-6 sm:p-8 text-center">
-                    <div className="w-12 h-12 bg-site-sage-light rounded-full flex items-center justify-center mx-auto">
-                      <Icon className="w-6 h-6 text-site-sage" />
-                    </div>
-                    <p className="mt-3 text-xs font-semibold text-site-sage uppercase tracking-wider font-site-body">
-                      Step {step.step}
-                    </p>
-                    <h3 className="mt-1 font-site-heading font-bold text-lg text-site-forest">
-                      {step.title}
-                    </h3>
-                    <p className="mt-2 text-sm sm:text-base text-site-soil-muted leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
-                </RevealOnScroll>
-              );
-            })}
-          </div>
         </div>
       </section>
 
-      {/* ── Final CTA ─────────────────────────────────────── */}
-      <section className="py-16 sm:py-24 bg-site-forest text-white">
-        <div className="mx-auto max-w-2xl px-5 sm:px-8 text-center">
+      {/* ── Visit ────────────────────────────────────────── */}
+      <section className="py-16 sm:py-24 bg-site-cream">
+        <div className="max-w-3xl px-6 sm:px-10 lg:px-16">
           <RevealOnScroll>
-            <h2 className="font-site-heading font-bold text-2xl sm:text-3xl lg:text-4xl">
+            <h2 className="font-site-heading font-bold text-[clamp(1.5rem,3vw,2.25rem)] leading-tight text-site-soil">
+              Visit the nursery
+            </h2>
+            <p className="mt-5 text-lg leading-[1.7] text-site-soil-muted max-w-[60ch]">
+              {visit.intro}
+            </p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+              <a
+                href={`https://wa.me/${business.whatsapp}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-[#25d366] text-white px-8 py-4 rounded-full text-lg font-semibold font-site-body transition-colors duration-200 hover:bg-[#1fad54]"
+              >
+                <MessageCircle className="w-5 h-5" />
+                WhatsApp George
+              </a>
+              <a
+                href={`tel:${business.phone.replace(/\D/g, "")}`}
+                className="inline-flex items-center justify-center gap-2 bg-site-soil text-white px-7 py-3.5 rounded-full text-base font-semibold font-site-body transition-colors duration-200 hover:bg-site-soil/90"
+              >
+                <Phone className="w-5 h-5" />
+                {business.phone}
+              </a>
+            </div>
+            <p className="mt-6 text-sm text-site-soil-muted">
+              Serving {business.address.serving}
+            </p>
+          </RevealOnScroll>
+        </div>
+      </section>
+
+      {/* ── Final CTA ────────────────────────────────────── */}
+      <section className="relative py-24 sm:py-32 overflow-hidden">
+        <Image
+          src={CTA_PHOTO}
+          alt="Dense tropical garden foliage bathed in warm light"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to top, oklch(0.14 0.02 60 / 0.85) 0%, oklch(0.14 0.02 60 / 0.7) 100%)",
+          }}
+        />
+        <div className="relative z-10 mx-auto max-w-2xl px-6 sm:px-10 text-center">
+          <RevealOnScroll>
+            <h2 className="font-site-heading font-bold text-[clamp(1.75rem,4vw,2.75rem)] leading-tight text-white">
               Ready to grow something from home?
             </h2>
-            <p className="mt-4 text-white/70 text-base sm:text-lg leading-relaxed">
+            <p className="mt-4 text-white/85 text-base sm:text-lg leading-relaxed max-w-[45ch] mx-auto">
               Call or WhatsApp George to schedule a visit. He&apos;ll help you
               pick the right plants for your yard and teach you how to grow them.
             </p>
@@ -310,7 +228,7 @@ export default function HomePage() {
                 href={`https://wa.me/${business.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-[#25d366] text-white px-7 py-3.5 rounded-full text-base font-semibold font-site-body transition-colors duration-200 hover:bg-[#1fad54]"
+                className="inline-flex items-center justify-center gap-2 bg-[#25d366] text-white px-8 py-4 rounded-full text-lg font-semibold font-site-body transition-colors duration-200 hover:bg-[#1fad54]"
               >
                 <MessageCircle className="w-5 h-5" />
                 WhatsApp George
@@ -323,17 +241,14 @@ export default function HomePage() {
                 Call {business.phone}
               </a>
             </div>
-            <p className="mt-6 text-sm text-white/50">
-              Serving {business.address.serving}
-            </p>
           </RevealOnScroll>
         </div>
       </section>
 
-      {/* ── Floating WhatsApp ──────────────────────────────── */}
+      {/* ── Floating WhatsApp ─────────────────────────────── */}
       <FloatingWhatsApp phone={business.whatsapp} />
 
-      {/* ── JSON-LD ────────────────────────────────────────── */}
+      {/* ── JSON-LD ───────────────────────────────────────── */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -341,6 +256,7 @@ export default function HomePage() {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             name: "Tess Farms LLC",
+            url: "https://tessfarms.com",
             description:
               "Indian plants and tropical fruit trees in Central Florida. Alphonso mango, curry leaf, jasmine, guava, and more.",
             telephone: business.phone,
