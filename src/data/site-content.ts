@@ -2,9 +2,9 @@ export const siteContent = {
   business: {
     name: "Tess Farms LLC",
     tagline: "The plants you grew up with, growing right here in Florida",
-    phone: "(407) 619-9561",
+    phone: "(407) 718-6535",
     email: "info@tessfarms.com",
-    whatsapp: "14076199561",
+    whatsapp: "14077186535",
     address: {
       area: "Central Florida",
       serving: "Lake Nona, St. Cloud, Kissimmee & surrounding communities",
@@ -25,7 +25,7 @@ export const siteContent = {
       subheadline:
         "Alphonso mango, curry leaf, jasmine, parijat \u2014 the trees and flowers from back home, raised in Central Florida soil. Founded by George, an educator and grower serving the Indian community for over five years.",
       cta: "Call or WhatsApp to visit",
-      ctaHref: "https://wa.me/14076199561",
+      ctaHref: "https://wa.me/14077186535",
     },
     highlights: [
       {
@@ -101,7 +101,7 @@ export const siteContent = {
         step: "1",
         title: "Call or WhatsApp",
         description:
-          "Reach out to George at (407) 619-9561 to schedule a visit. Let him know what plants you're looking for.",
+          "Reach out to George at (407) 718-6535 to schedule a visit. Let him know what plants you're looking for.",
       },
       {
         step: "2",

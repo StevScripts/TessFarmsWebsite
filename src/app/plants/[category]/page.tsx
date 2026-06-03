@@ -95,11 +95,11 @@ export default async function CategoryPage({
               WhatsApp George
             </a>
             <a
-              href="tel:14076199561"
+              href="tel:14077186535"
               className="inline-flex items-center justify-center gap-2 bg-white/10 text-white border border-white/20 px-5 py-2.5 rounded-full text-sm font-semibold font-site-body transition-colors hover:bg-white/20 min-h-[44px]"
             >
               <Phone className="w-4 h-4" />
-              (407) 619-9561
+              (407) 718-6535
             </a>
           </div>
         </div>
