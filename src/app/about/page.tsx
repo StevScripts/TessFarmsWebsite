@@ -7,9 +7,9 @@ const WA_MSG = encodeURIComponent(
 );
 
 export const metadata = {
-  title: "About | Tess Farms LLC",
+  title: "About | Tes Farms LLC",
   description:
-    "Meet George, the founder of Tess Farms LLC. Learn how an educator from India built a nursery serving Indian families across Central Florida.",
+    "Meet George, the founder of Tes Farms LLC. Learn how an educator from India built a nursery serving Indian families across Central Florida.",
 };
 
 export default function AboutPage() {
@@ -19,7 +19,7 @@ export default function AboutPage() {
     <div className="max-w-3xl mx-auto px-6 sm:px-10 lg:px-16 py-16 sm:py-24">
       {/* ── Heading ──────────────────────────────────────── */}
       <h1 className="font-site-heading font-bold text-[clamp(1.75rem,4vw,2.75rem)] text-site-soil">
-        About Tess Farms
+        About Tes Farms
       </h1>
 
       {/* ── George intro ─────────────────────────────────── */}
@@ -66,7 +66,7 @@ export default function AboutPage() {
         Visit the nursery
       </h2>
       <p className="mt-4 text-lg leading-[1.7] text-site-soil-muted max-w-[60ch]">
-        Tess Farms operates by appointment from George&apos;s property in
+        Tes Farms operates by appointment from George&apos;s property in
         Central Florida. Call or WhatsApp to schedule a time — George will walk
         you through what&apos;s in stock and help you pick the right plants for
         your yard.

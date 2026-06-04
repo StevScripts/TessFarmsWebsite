@@ -36,7 +36,7 @@ export function SiteHeader() {
             href="/"
             className="font-site-heading font-bold text-lg sm:text-xl text-site-forest tracking-tight"
           >
-            Tess Farms
+            Tes Farms
           </Link>
 
           {/* Desktop nav */}

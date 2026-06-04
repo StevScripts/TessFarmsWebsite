@@ -19,7 +19,7 @@ const sourceSans = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  title: "Tess Farms LLC \u2014 Indian Fruit Trees & Plants in Central Florida",
+  title: "Tes Farms LLC \u2014 Indian Fruit Trees & Plants in Central Florida",
   description:
     "Alphonso mango, curry leaf, jasmine, guava, parijat & more. Indian plants grown in Central Florida. Serving Lake Nona, St. Cloud, Kissimmee & Orlando.",
   keywords: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     "curry leaf plant Orlando",
     "jasmine plant Central Florida",
     "Indian nursery Orlando",
-    "Tess Farms",
+    "Tes Farms",
     "mango tree Kissimmee",
     "parijat plant Florida",
     "guava tree Lake Nona",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "Tess Farms LLC",
+    siteName: "Tes Farms LLC",
   },
 };
 

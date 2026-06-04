@@ -9,7 +9,7 @@ export function SiteFooter() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-center sm:text-left">
             <p className="font-site-heading font-bold text-base text-white">
-              Tess Farms LLC
+              Tes Farms LLC
             </p>
             <p className="text-xs text-white/60 mt-1">
               {business.hours.note} &middot; {business.address.serving}
@@ -44,7 +44,7 @@ export function SiteFooter() {
 
         <div className="mt-6 pt-4 border-t border-white/10 text-center">
           <p className="text-xs text-white/60">
-            &copy; {new Date().getFullYear()} Tess Farms LLC. All rights reserved.
+            &copy; {new Date().getFullYear()} Tes Farms LLC. All rights reserved.
           </p>
         </div>
       </div>

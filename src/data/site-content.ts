@@ -1,6 +1,6 @@
 export const siteContent = {
   business: {
-    name: "Tess Farms LLC",
+    name: "Tes Farms LLC",
     tagline: "The plants you grew up with, growing right here in Florida",
     phone: "(407) 718-6535",
     email: "info@tessfarms.com",
@@ -46,7 +46,7 @@ export const siteContent = {
     ],
     aboutTeaser: {
       quote:
-        "I moved to Florida and missed the trees I grew up with \u2014 the smell of jasmine in the evening, curry leaves fresh off the branch, a real Alphonso mango from your own yard. I started Tess Farms so nobody in our community has to miss those things.",
+        "I moved to Florida and missed the trees I grew up with \u2014 the smell of jasmine in the evening, curry leaves fresh off the branch, a real Alphonso mango from your own yard. I started Tes Farms so nobody in our community has to miss those things.",
       attribution: "George, founder",
       linkText: "Read our story",
       linkHref: "/about",
@@ -56,13 +56,13 @@ export const siteContent = {
   about: {
     headline: "Meet George",
     blurb:
-      "George moved from India to Florida and missed the plants he grew up with. So he started growing them himself. What began as a few trees in his backyard became Tess Farms: a nursery supplying curry leaf, mango, jasmine, and more to Indian families across Central Florida. He's an educator at heart. Every visit is part shopping, part lesson.",
+      "George moved from India to Florida and missed the plants he grew up with. So he started growing them himself. What began as a few trees in his backyard became Tes Farms: a nursery supplying curry leaf, mango, jasmine, and more to Indian families across Central Florida. He's an educator at heart. Every visit is part shopping, part lesson.",
     mission:
       "To bring the plants of home to every Indian family in Central Florida, and to teach them how to make those plants thrive.",
   },
 
   plants: {
-    headline: "What\u2019s growing at Tess Farms",
+    headline: "What\u2019s growing at Tes Farms",
     intro:
       "We specialize in plants that Indian families grew up with \u2014 fruit trees, fragrant flowers, and kitchen essentials that are hard to find at typical nurseries. Stock changes with the season, so call or WhatsApp for current availability.",
     seasonalNote:
@@ -95,7 +95,7 @@ export const siteContent = {
   visit: {
     headline: "Visit the nursery",
     intro:
-      "Tess Farms operates by appointment from George's property in Central Florida. Call or WhatsApp to schedule a time \u2014 George will walk you through what's in stock and help you pick the right plants for your yard.",
+      "Tes Farms operates by appointment from George's property in Central Florida. Call or WhatsApp to schedule a time \u2014 George will walk you through what's in stock and help you pick the right plants for your yard.",
     howItWorks: [
       {
         step: "1",

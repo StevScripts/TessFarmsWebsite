@@ -149,7 +149,7 @@ export default function HomePage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            name: "Tess Farms LLC",
+            name: "Tes Farms LLC",
             url: "https://tessfarms.com",
             description:
               "Indian plants and tropical fruit trees in Central Florida. Alphonso mango, curry leaf, jasmine, guava, and more.",

@@ -7,9 +7,9 @@ const WA_MSG = encodeURIComponent(
 );
 
 export const metadata = {
-  title: "Contact | Tess Farms LLC",
+  title: "Contact | Tes Farms LLC",
   description:
-    "Call or WhatsApp George at Tess Farms LLC. By-appointment nursery in Central Florida specializing in Indian plants and tropical fruit trees.",
+    "Call or WhatsApp George at Tes Farms LLC. By-appointment nursery in Central Florida specializing in Indian plants and tropical fruit trees.",
 };
 
 export default function ContactPage() {
