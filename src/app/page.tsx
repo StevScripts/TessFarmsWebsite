@@ -1,46 +1,41 @@
 import { Phone, MessageCircle } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { plantCategories } from "@/data/plant-catalog";
 import { siteContent } from "@/data/site-content";
 import { FloatingWhatsApp } from "@/components/site/floating-whatsapp";
 
-const HERO_PHOTO =
-  "https://images.unsplash.com/photo-1621849400072-f554417f7051?auto=format&fit=crop&w=1920&q=80";
-
 const WA_MSG = encodeURIComponent(
   "Hi George, I saw your website and I\u2019m interested in visiting the nursery."
 );
+
+/** Hand-picked plants to feature per category for recognition */
+const FEATURED: Record<string, string[]> = {
+  mangoes: ["Alphonso", "Kesar", "Kent", "Nam Doc Mai", "Coconut Cream"],
+  avocados: ["Brogdon", "Choquette", "Day", "Super Hass"],
+  "fruit-trees": ["Lychee", "Jackfruit", "Guava", "Sapodilla (Chikoo)", "Dragon Fruit"],
+  "berries-nuts-spices": ["Turmeric", "Moringa (Drumstick)", "Black Pepper", "Tamarind"],
+  "citrus-trees": ["Meyer Lemon", "Kumquat", "Key Lime"],
+  "exotic-indian-plants": ["Curry Leaf", "Jasmine (Mysore Mallige)", "Parijat (Night Jasmine)", "Tulsi (Holy Basil)"],
+};
 
 export default function HomePage() {
   const { about, business } = siteContent;
 
   return (
     <>
-      {/* ── Hero ─────────────────────────────────────────── */}
-      <section className="relative min-h-[60vh] sm:min-h-[70vh] flex items-end overflow-hidden">
-        <Image
-          src={HERO_PHOTO}
-          alt="Lush tropical garden with dense green foliage in warm sunlight"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to top, oklch(0.14 0.02 60 / 0.88) 0%, oklch(0.14 0.02 60 / 0.5) 40%, oklch(0.14 0.02 60 / 0.15) 70%, transparent 100%)",
-          }}
-        />
-        <div className="relative z-10 w-full max-w-4xl px-5 sm:px-8 pb-10 sm:pb-14">
-          <h1 className="font-site-heading font-bold text-[clamp(1.75rem,5vw,3.25rem)] leading-[1.1] tracking-tight text-white max-w-[18ch]">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+        {/* ── Header ─────────────────────────────────────── */}
+        <header className="pt-10 sm:pt-14 pb-8">
+          <h1 className="font-site-heading font-bold text-2xl sm:text-[clamp(1.75rem,4vw,2.5rem)] leading-[1.15] text-site-soil max-w-[22ch]">
             The plants you grew up with, growing right here in Florida
           </h1>
-          <p className="mt-3 text-base sm:text-lg leading-relaxed text-white/90 max-w-[50ch]">
-            Indian fruit trees, fragrant flowers, and kitchen-garden essentials
-            raised in Central Florida soil.
+          <p className="mt-3 text-base sm:text-lg text-site-soil-muted leading-relaxed max-w-[58ch]">
+            Alphonso mango, curry leaf, jasmine, parijat, and 80+ more varieties.
+            Raised in Central Florida soil by George, an educator and grower
+            serving the Indian community for over five years.
+          </p>
+          <p className="mt-1.5 text-sm text-site-sage font-medium">
+            Serving Lake Nona, St. Cloud, Kissimmee &amp; surrounding communities
           </p>
           <div className="mt-5 flex flex-col sm:flex-row gap-2.5">
             <a
@@ -54,50 +49,42 @@ export default function HomePage() {
             </a>
             <a
               href={`tel:${business.phone.replace(/\D/g, "")}`}
-              className="inline-flex items-center justify-center gap-2 bg-white/10 text-white border border-white/20 px-5 py-2.5 rounded-full text-sm font-semibold font-site-body transition-colors duration-200 hover:bg-white/20 min-h-[44px]"
+              className="inline-flex items-center justify-center gap-2 bg-site-forest text-white px-5 py-2.5 rounded-full text-sm font-semibold font-site-body transition-colors duration-200 hover:bg-site-forest/90 min-h-[44px]"
             >
               <Phone className="w-5 h-5" />
               {business.phone}
             </a>
           </div>
-        </div>
-      </section>
+        </header>
 
-      {/* ── Category Cards ───────────────────────────────── */}
-      <section className="py-10 sm:py-14 bg-white">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8">
-          <h2 className="font-site-heading font-bold text-xl sm:text-2xl text-site-soil">
-            What we grow
-          </h2>
-          <p className="mt-1.5 text-site-soil-muted text-sm sm:text-base max-w-[55ch]">
-            Stock changes with the season. Tap a category to see varieties.
-          </p>
+        {/* ── Plant categories ───────────────────────────── */}
+        <section className="pb-10 sm:pb-14 space-y-3">
+          {plantCategories.map((cat) => (
+            <Link
+              key={cat.slug}
+              href={`/plants/${cat.slug}`}
+              className="group block rounded-xl bg-site-cream px-5 py-4 transition-colors hover:bg-site-sage-light/50"
+            >
+              <div className="flex items-baseline justify-between gap-3">
+                <h2 className="font-site-heading font-semibold text-base sm:text-[0.9375rem] text-site-soil group-hover:text-site-forest transition-colors">
+                  {cat.name}
+                  <span className="ml-2 text-xs text-site-sage font-medium">
+                    {cat.varieties.length} varieties
+                  </span>
+                </h2>
+                <span className="text-xs text-site-sage font-semibold whitespace-nowrap">
+                  View all &rarr;
+                </span>
+              </div>
+              <p className="mt-1 text-sm text-site-soil-muted leading-relaxed">
+                {(FEATURED[cat.slug] || []).join(" \u00b7 ")}
+              </p>
+            </Link>
+          ))}
+        </section>
 
-          <div className="mt-6 grid grid-cols-2 md:grid-cols-3 gap-3">
-            {plantCategories.map((category) => (
-              <Link
-                key={category.slug}
-                href={`/plants/${category.slug}`}
-                className="group flex flex-col items-center gap-2 rounded-xl bg-site-cream p-4 sm:p-5 text-center transition-colors hover:bg-site-sage-light/60"
-              >
-                <span className="text-3xl sm:text-4xl" aria-hidden="true">
-                  {category.icon}
-                </span>
-                <span className="font-site-heading font-semibold text-sm sm:text-base text-site-soil group-hover:text-site-forest transition-colors">
-                  {category.name}
-                </span>
-                <span className="text-xs text-site-sage font-semibold">
-                  {category.varieties.length} varieties &rarr;
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── About George ─────────────────────────────────── */}
-      <section className="py-10 sm:py-14 bg-site-cream">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8">
+        {/* ── About George ───────────────────────────────── */}
+        <section className="pb-10 sm:pb-14 border-t border-site-sage-light/40 pt-8">
           <div className="flex flex-col sm:flex-row items-start gap-5">
             <div className="w-20 h-20 rounded-xl overflow-hidden bg-site-sage-light/50 flex-shrink-0 flex items-center justify-center">
               <span className="text-site-sage text-xs font-site-body text-center px-1">
@@ -113,47 +100,44 @@ export default function HomePage() {
               </p>
               <Link
                 href="/about"
-                className="mt-3 inline-block text-site-sage font-semibold text-sm hover:text-site-forest transition-colors underline underline-offset-2"
+                className="mt-3 inline-block text-site-forest font-semibold text-sm hover:underline underline-offset-2 transition-colors"
               >
                 Learn more &rarr;
               </Link>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ── Hours & Contact ──────────────────────────────── */}
-      <section className="py-10 sm:py-14 bg-site-forest text-white">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8 text-center">
-          <h2 className="font-site-heading font-bold text-xl sm:text-2xl">
-            Visit the nursery
-          </h2>
-          <p className="mt-2 text-base text-white/85 max-w-[45ch] mx-auto">
-            By appointment only. Call or WhatsApp to schedule.
-          </p>
-          <div className="mt-5 flex flex-col sm:flex-row gap-2.5 justify-center">
-            <a
-              href={`https://wa.me/${business.whatsapp}?text=${WA_MSG}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-[#25d366] text-white px-6 py-3 rounded-full text-base font-semibold font-site-body transition-colors duration-200 hover:bg-[#1fad54] min-h-[44px]"
-            >
-              <MessageCircle className="w-5 h-5" />
-              WhatsApp George
-            </a>
-            <a
-              href={`tel:${business.phone.replace(/\D/g, "")}`}
-              className="inline-flex items-center justify-center gap-2 bg-white/10 text-white border border-white/20 px-5 py-2.5 rounded-full text-sm font-semibold font-site-body transition-colors duration-200 hover:bg-white/20 min-h-[44px]"
-            >
-              <Phone className="w-5 h-5" />
-              {business.phone}
-            </a>
+        {/* ── Contact CTA ────────────────────────────────── */}
+        <section className="pb-10 sm:pb-14">
+          <div className="rounded-xl bg-site-forest px-6 py-6 text-white">
+            <p className="font-site-heading font-semibold text-base sm:text-lg">
+              Visit the nursery
+            </p>
+            <p className="mt-1 text-sm text-white/80">
+              By appointment only. Call or WhatsApp to schedule a time.
+            </p>
+            <div className="mt-4 flex flex-col sm:flex-row gap-2.5">
+              <a
+                href={`https://wa.me/${business.whatsapp}?text=${WA_MSG}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-[#25d366] text-white px-5 py-2.5 rounded-full text-sm font-semibold font-site-body transition-colors hover:bg-[#1fad54] min-h-[44px]"
+              >
+                <MessageCircle className="w-4 h-4" />
+                WhatsApp George
+              </a>
+              <a
+                href={`tel:${business.phone.replace(/\D/g, "")}`}
+                className="inline-flex items-center justify-center gap-2 bg-white/10 text-white border border-white/20 px-5 py-2.5 rounded-full text-sm font-semibold font-site-body transition-colors hover:bg-white/20 min-h-[44px]"
+              >
+                <Phone className="w-4 h-4" />
+                {business.phone}
+              </a>
+            </div>
           </div>
-          <p className="mt-5 text-xs text-white/60">
-            Serving {business.address.serving}
-          </p>
-        </div>
-      </section>
+        </section>
+      </div>
 
       {/* ── Floating WhatsApp ─────────────────────────────── */}
       <FloatingWhatsApp phone={business.whatsapp} />
