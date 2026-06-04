@@ -12,7 +12,7 @@ Visitors arrive curious but cautious. They may have searched for "Indian plants 
 
 ## Product Purpose
 
-A public-facing website for Tess Farms LLC, a home nursery in Central Florida run by George, an Indian immigrant and educator. The site exists to:
+A public-facing website for Tes Farms LLC, a home nursery in Central Florida run by George, an Indian immigrant and educator. The site exists to:
 
 1. Make George findable online for people searching for Indian plants in Central Florida
 2. Show what's available (mango, jasmine, curry leaf, guava, parijat, and more) without exposing exact stock levels

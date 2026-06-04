@@ -1,5 +1,5 @@
 ---
-name: Tess Farms LLC
+name: Tes Farms LLC
 description: Indian plants and tropical fruit trees in Central Florida
 colors:
   nursery-green: "#2a5c3a"
@@ -90,7 +90,7 @@ components:
     size: "56px"
 ---
 
-# Design System: Tess Farms LLC
+# Design System: Tes Farms LLC
 
 ## 1. Overview
 
@@ -195,7 +195,7 @@ Two tiers of plant display on the single page.
 ### Sticky Header
 - **Height:** 56px mobile, 64px desktop.
 - **Background:** White/90 with backdrop-blur-sm, 1px Morning Mist border bottom.
-- **Left:** "Tess Farms" wordmark in Bitter bold, links to top of page.
+- **Left:** "Tes Farms" wordmark in Bitter bold, links to top of page.
 - **Right:** Phone icon button (40px touch target) + WhatsApp pill button (green, smaller than hero CTAs).
 - **No navigation links.** Single page needs no nav. The header exists for brand presence and persistent contact access.
 
